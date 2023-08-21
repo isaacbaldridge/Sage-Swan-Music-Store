@@ -24,8 +24,12 @@ const users = [
   },
   {
     name: 'John Smith',
+    username: 'Johnny',
+    password: 'joe12356',
     email: 'john@example.com',
-    password: 'password123',
+    address: '24th street, Washington',
+    isAdmin : false
+    
   },
   // Add more user objects as needed
 ];  
