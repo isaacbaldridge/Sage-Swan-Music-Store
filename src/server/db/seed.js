@@ -83,18 +83,21 @@ const dropTables = async () => {
 }
 
 const createTables = async () => {
-    try{
-        await db.query(`
-        CREATE TABLE users(
-            id SERIAL PRIMARY KEY,
-            name VARCHAR(255) DEFAULT 'name',
-            email VARCHAR(255) UNIQUE NOT NULL,
-            password VARCHAR(255) NOT NULL
-        )`)
-    }
-    catch(err) {
-        throw err;
-    }
+  try{
+      await db.query(`
+      CREATE TABLE users(
+          id SERIAL PRIMARY KEY,
+          name VARCHAR(255) DEFAULT 'name',
+          username varchar(30),
+          password TEXT NOT NULL,
+          email VARCHAR(255),
+          address TEXT,
+          isAdmin BOOLEAN DEFAULT false
+      )`)
+  }
+  catch(err) {
+      throw err;
+  }
 }
 
 const insertUsers = async () => {
