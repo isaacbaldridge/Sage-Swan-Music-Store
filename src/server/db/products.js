@@ -16,7 +16,21 @@ const createProduct = async ({category, brand, name, description, price, image})
     }
 }
 
+const getAllProducts = async ()=>{
+    try{
+      const {rows: [product]} = await db.query
+      (` SELECT * FROM products;`) 
+        return product;
+
+    }catch (err){
+       throw err;
+    }
+}
+
+
+
+
 module.exports ={
-    createProduct
-    
+    createProduct,
+    getAllProducts
 }
