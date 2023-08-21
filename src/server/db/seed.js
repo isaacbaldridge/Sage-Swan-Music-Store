@@ -3,21 +3,6 @@ const { createUser } = require('./users');
 
 const users = [
   { name: 'Porsha',
-    username: 'Porsha123',
-    password: 'P12A',
-    email: 'porshahere@gmail.com',
-    address: '5321 chicago south',
-    isAdmin: true
-
-  },
-  { name: 'Taco',
-    username: 'tacotuesday123',
-    password: 'hq12',
-    email: 'mytaco123@yahoo.com',
-    address: '123 Taco Bell Rd',
-    isAdmin: true
-  },
-  { name: 'Porsha',
   username: 'Porsha123',
   password: 'P12A',
   email: 'porshahere@gmail.com',
@@ -45,28 +30,32 @@ const users = [
     username: 'LiuWei2023',
     password: 'strongpass',
     email: 'liu@example.com',
-    password: 'strongpass',
+    address: '245 1st Ave, NY',
+    isAdmin: false
   },
   {
     name: 'Isabella García',
     username: 'GarciaIs45',
     password: 'pass1234',
     email: 'bella@example.com',
-    password: 'pass1234',
+    address: '1212 Last Address Ave, Denver CO',
+    isAdmin: false
   },
   {
     name: 'Mohammed Ahmed',
     username: 'mohan967',
     password: 'mysecretpassword',
     email: 'mohammed@example.com',
-    password: 'mysecretpassword',
+    address: '984 yearly lane, washington DC',
+    isAdmin: false
   },
   {
     name: 'John Smith',
+    username: 'Johnny',
+    password: 'joe12356',
     email: 'john@example.com',
     address: '24th street, Washington',
     isAdmin : false
-   
   },
   // Add more user objects as needed
 ];
@@ -83,21 +72,21 @@ const dropTables = async () => {
 }
 
 const createTables = async () => {
-  try{
-      await db.query(`
-      CREATE TABLE users(
+    try{
+        await db.query(`
+        CREATE TABLE users(
           id SERIAL PRIMARY KEY,
           name VARCHAR(255) DEFAULT 'name',
-          username varchar(30),
+          username varchar(30) UNIQUE NOT NULL,
           password TEXT NOT NULL,
-          email VARCHAR(255),
+          email VARCHAR(255) UNIQUE NOT NULL,
           address TEXT,
           isAdmin BOOLEAN DEFAULT false
-      )`)
-  }
-  catch(err) {
-      throw err;
-  }
+        )`)
+    }
+    catch(err) {
+        throw err;
+    }
 }
 
 const insertUsers = async () => {
