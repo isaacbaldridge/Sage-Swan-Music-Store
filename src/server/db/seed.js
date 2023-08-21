@@ -2,37 +2,64 @@ const db = require('./client');
 const { createUser } = require('./users');
 
 const users = [
+  { name: 'Porsha',
+  username: 'Porsha123',
+  password: 'P12A',
+  email: 'porshahere@gmail.com',
+  address: '5321 chicago south',
+  isAdmin: true
+  },
+  { 
+    name: 'Taco',
+    username: 'tacotuesday123',
+    password: 'hq12',
+    email: 'mytaco123@yahoo.com',
+    address: '123 Taco Bell Rd',
+    isAdmin: true
+  },
   {
     name: 'Emily Johnson',
-    email: 'emily@example.com',
+    username: 'EmJo',
     password: 'securepass',
+    email: 'emily@example.com',
+    address: '123 Street, Seattle WA',
+    isAdmin: false
   },
   {
     name: 'Liu Wei',
-    email: 'liu@example.com',
+    username: 'LiuWei2023',
     password: 'strongpass',
+    email: 'liu@example.com',
+    address: '245 1st Ave, NY',
+    isAdmin: false
   },
   {
     name: 'Isabella García',
-    email: 'bella@example.com',
+    username: 'GarciaIs45',
     password: 'pass1234',
+    email: 'bella@example.com',
+    address: '1212 Last Address Ave, Denver CO',
+    isAdmin: false
   },
   {
     name: 'Mohammed Ahmed',
-    email: 'mohammed@example.com',
+    username: 'mohan967',
     password: 'mysecretpassword',
+    email: 'mohammed@example.com',
+    address: '984 yearly lane, washington DC',
+    isAdmin: false
   },
   {
     name: 'John Smith',
     username: 'Johnny',
     password: 'joe12356',
+    username: 'Johnny',
+    password: 'joe12356',
     email: 'john@example.com',
-    address: '24th street, Washington',
-    isAdmin : false
-    
+    password: 'password123',
   },
   // Add more user objects as needed
-];  
+];
 
 const dropTables = async () => {
     try {
@@ -49,10 +76,13 @@ const createTables = async () => {
     try{
         await db.query(`
         CREATE TABLE users(
-            id SERIAL PRIMARY KEY,
-            name VARCHAR(255) DEFAULT 'name',
-            email VARCHAR(255) UNIQUE NOT NULL,
-            password VARCHAR(255) NOT NULL
+          id SERIAL PRIMARY KEY,
+          name VARCHAR(255) DEFAULT 'name',
+          username varchar(30) UNIQUE NOT NULL,
+          password TEXT NOT NULL,
+          email VARCHAR(255) UNIQUE NOT NULL,
+          address TEXT,
+          isAdmin BOOLEAN DEFAULT false
         )`)
     }
     catch(err) {
@@ -63,7 +93,7 @@ const createTables = async () => {
 const insertUsers = async () => {
   try {
     for (const user of users) {
-      await createUser({name: user.name, email: user.email, password: user.password});
+      await createUser({name: user.name, username: user.username, password: user.password, email: user.email, address: user.address, isAdmin: user.isAdmin});
     }
     console.log('Seed data inserted successfully.');
   } catch (error) {
