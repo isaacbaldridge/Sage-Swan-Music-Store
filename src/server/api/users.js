@@ -4,6 +4,7 @@ const usersRouter = express.Router();
 const {
     createUser,
     getUser,
+    getAllUsers,
     getUserByEmail
 } = require('../db');
 
@@ -11,11 +12,10 @@ const jwt = require('jsonwebtoken')
 
 usersRouter.get('/', async( req, res, next) => {
     try {
+        console.log("In user route:");
         const users = await getAllUsers();
 
-        res.send({
-            users
-        });
+        res.send(users);
     } catch ({name, message}) {
         next({name, message})
     }
@@ -56,8 +56,8 @@ usersRouter.post('/login', async(req, res, next) => {
 });
 
 usersRouter.post('/register', async(req, res, next) => {
-    const { name, email, password } = req.body;
-
+    const { name, username, password,email, address,isAdmin } = req.body;
+    
     try {
         const _user = await getUserByEmail(email);
 
@@ -70,8 +70,12 @@ usersRouter.post('/register', async(req, res, next) => {
 
         const user = await createUser({
             name,
+            username,
+            password,
             email,
-            password
+            address,
+            isAdmin
+            
         });
 
         const token = jwt.sign({
