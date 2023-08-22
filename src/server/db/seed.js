@@ -1,6 +1,6 @@
 const db = require('./client');
 const { createUser } = require('./users');
-const {createProduct} = require('./products');
+const {createProduct, getAllProducts} = require('./products');
 
 const users = [
   { name: 'Porsha',
@@ -224,6 +224,8 @@ const insertUsers = async () => {
     console.error('Error inserting seed data:', error);
   }
 };
+
+await createOrder({user_id: order.user_id, fulfilled: order.fulfilled, order_total: order.order_total});
 
 const insertProducts = async () =>{
   try{
