@@ -67,8 +67,8 @@ const products = [
   brand: "Fender",
   name: "Stratocaster",
   description: "A fine guitar",
-  price: 1999.99,
-  image: src = "strat.jpg"
+  price: 1999.99
+  // image: src = "strat.jpg"
   },
 
   {
@@ -76,8 +76,8 @@ const products = [
     brand: "Fender",
     name: "Telecaster",
     description: "For all your best country tunes",
-    price: 2499.99,
-    image: src = "telecaster_720.jpg"
+    price: 2499.99
+    // image: src = "telecaster_720.jpg"
 },
 
 {
@@ -85,8 +85,8 @@ const products = [
   brand: "Fender",
   name: "Jazzmaster",
   description: "For all your best jazzy tunes",
-  price: 499.99,
-  image: src = "jazzmaster_720.jpg"
+  price: 499.99
+  // image: src = "jazzmaster_720.jpg"
 },
 
 {
@@ -94,8 +94,8 @@ const products = [
   brand: "Gibson",
   name: "Les Paul",
   description: "For all your classic rock tunes",
-  price: 4999.99,
-  image: src = "les_paul_360.jpg"
+  price: 4999.99
+  // image: src = "les_paul_360.jpg"
 },
 
 {
@@ -103,8 +103,8 @@ const products = [
   brand: "Gibson",
   name: "ES-335",
   description: "Feelin' bluesy?",
-  price: 5499.99,
-  image: src = "es335_720.jpg"
+  price: 5499.99
+  // image: src = "es335_720.jpg"
 },
 
 {
@@ -112,8 +112,8 @@ const products = [
   brand: "Yamaha",
   name: "PAC Series",
   description: "Great for beginners.",
-  price: 299.99,
-  image: src = "yahmahaguitar_720.jpg"
+  price: 299.99
+  // image: src = "yahmahaguitar_720.jpg"
 },
   
 // ABOVE STRINGED INSTRUMENTS, BELOW PERCUSSION//
@@ -122,8 +122,8 @@ const products = [
   brand: "Gretsch",
   name: "Tambourine",
   description: "A fine tambourine",
-  price: 99.99,
-  image: src = "tambourine.jpg"
+  price: 99.99
+  // image: src = "tambourine.jpg"
 },
 
 {
@@ -131,8 +131,8 @@ category: "percussion",
 brand: "Yamaha",
 name: "Cymbal",
 description: "An okay cymbal",
-price: 49.99,
-image: src = "cymbal.jpg"
+price: 49.99
+// image: src = "cymbal.jpg"
 },
 
 {
@@ -140,8 +140,8 @@ category: "percussion",
 brand: "Ludwig",
 name: "snare",
 description: "An EPIC snare",
-price: 299.99,
-image: src = "snare.jpg"
+price: 299.99
+// image: src = "snare.jpg"
 },
 
 {
@@ -149,8 +149,8 @@ category: "percussion",
 brand: "Ludwig",
 name: "Triangle",
 description: "A very cute triangle",
-price: 19.99,
-image: src = "triangle.jpg"
+price: 19.99
+// image: src = "triangle.jpg"
 },
 
 {
@@ -158,8 +158,8 @@ category: "percussion",
 brand: "Gretsch",
 name: "Cow Bell",
 description: "Because you ALWAYS need more cow bell.",
-price: 89.99,
-image: src = "cowbell.jpg"
+price: 89.99
+// image: src = "cowbell.jpg"
 },
 
 ];
