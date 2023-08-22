@@ -1,6 +1,7 @@
 const db = require('./client');
 const { createUser } = require('./users');
 const {createProduct, getAllProducts} = require('./products');
+const {createOrder} = require('./orders');
 
 const users = [
   { name: 'Porsha',
@@ -164,6 +165,35 @@ price: 89.99
 
 ];
 
+const orders = [
+  {
+  user_id: 3,
+  fulfilled: false,
+  order_total: 49.99 /* id product #8 */
+  },
+  {
+    user_id: 5,
+    fulfilled: true,
+    order_total: 7.99 /* id product  #3 & 9 */
+    },
+    {
+      user_id: 2,
+      fulfilled: true,
+      order_total: 189.98 /* id product #7 & #11 */
+      },
+      {
+        user_id: 7,
+        fulfilled: false,
+        order_total: 2499.99 /* id product #2 */
+        },
+        {
+          user_id: 7,
+          fulfilled: true,
+          order_total: 4999.99 /* id product #4 */
+          },
+
+]
+
 
 
 
@@ -171,6 +201,10 @@ price: 89.99
 
 const dropTables = async () => {
     try {
+      await db.query(`
+        DROP TABLE IF EXISTS orders;
+        `)
+
         await db.query(`
         DROP TABLE IF EXISTS users;
         `)
@@ -207,6 +241,14 @@ const createTables = async () => {
           price DECIMAL,
           image TEXT
           )`)
+          
+          await db.query(`
+          CREATE TABLE orders(
+            id SERIAL PRIMARY KEY,
+            user_id INTEGER REFERENCES users(id),
+            fulfilled BOOLEAN,
+            order_total DECIMAL
+          )`)
   
     }
     catch(err) {
@@ -224,8 +266,6 @@ const insertUsers = async () => {
     console.error('Error inserting seed data:', error);
   }
 };
-
-await createOrder({user_id: order.user_id, fulfilled: order.fulfilled, order_total: order.order_total});
 
 const insertProducts = async () =>{
   try{
@@ -246,6 +286,7 @@ const seedDatabse = async () => {
         await createTables();
         await insertUsers();
         await insertProducts();
+        await insertOrders();
     }   
     catch (err) {
         throw err;
