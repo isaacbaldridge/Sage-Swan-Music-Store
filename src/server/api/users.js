@@ -4,18 +4,19 @@ const usersRouter = express.Router();
 const {
     createUser,
     getUser,
-    getUserByEmail
+    getAllUsers,
+    getUserByEmail,
+    getUserById
 } = require('../db');
 
 const jwt = require('jsonwebtoken')
 
 usersRouter.get('/', async( req, res, next) => {
     try {
+        console.log("In user route:");
         const users = await getAllUsers();
 
-        res.send({
-            users
-        });
+        res.send(users);
     } catch ({name, message}) {
         next({name, message})
     }
@@ -56,8 +57,8 @@ usersRouter.post('/login', async(req, res, next) => {
 });
 
 usersRouter.post('/register', async(req, res, next) => {
-    const { name, email, password } = req.body;
-
+    const { name, username, password,email, address,isAdmin } = req.body;
+    
     try {
         const _user = await getUserByEmail(email);
 
@@ -70,8 +71,12 @@ usersRouter.post('/register', async(req, res, next) => {
 
         const user = await createUser({
             name,
+            username,
+            password,
             email,
-            password
+            address,
+            isAdmin
+            
         });
 
         const token = jwt.sign({
@@ -89,5 +94,24 @@ usersRouter.post('/register', async(req, res, next) => {
         next({name, message})
     }
 })
+
+//Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJlbWlseUBleGFtcGxlLmNvbSIsImlhdCI6MTY5MjcxNjg3MiwiZXhwIjoxNjkzMzIxNjcyfQ.crp25gQ8IJGvbmqz4js5ug1-wKbe7CDaADwXJMH76zM
+
+usersRouter.get('/:id', async (req, res) => {
+    let token = req.headers.authorization
+    token = token.split(' ')[1]
+
+    try {
+      if (!token) {
+        return res.status(400).send('bad token')
+      }
+  
+      const user = jwt.verify(token, JWT_SECRET)
+  
+      res.status(200).send({ message: 'You are all good.', ...user })
+    } catch (err) {
+      res.status(500).send({ message: 'Server error with JWT token.' })
+    }
+  })
 
 module.exports = usersRouter;
