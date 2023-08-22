@@ -5,7 +5,7 @@ const router = require('vite-express');
 const app = express();
 
 const bodyParser = require('body-parser')
-app.use(express.json());
+app.use(bodyParser.json());
 
 app.use(express.static('public'))
 
