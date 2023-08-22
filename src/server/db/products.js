@@ -18,9 +18,9 @@ const createProduct = async ({category, brand, name, description, price, image})
 
 const getAllProducts = async ()=>{
     try{
-      const {rows: [product]} = await db.query
+      const {rows} = await db.query
       (` SELECT * FROM products;`) 
-        return product;
+        return rows;
 
     }catch (err){
        throw err;
