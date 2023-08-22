@@ -69,7 +69,7 @@ async function getAllUsers() {
       const { rows: [ user ] } = await db.query(`
         SELECT id, name, username, address, isAdmin
         FROM users
-        WHERE id=${ userId }
+        WHERE id=${userId}
       `);
   
       if (!user) {
