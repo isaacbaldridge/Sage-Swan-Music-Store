@@ -95,4 +95,23 @@ usersRouter.post('/register', async(req, res, next) => {
     }
 })
 
+//Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJlbWlseUBleGFtcGxlLmNvbSIsImlhdCI6MTY5MjcxNjg3MiwiZXhwIjoxNjkzMzIxNjcyfQ.crp25gQ8IJGvbmqz4js5ug1-wKbe7CDaADwXJMH76zM
+
+usersRouter.get('/:id', async (req, res) => {
+    let token = req.headers.authorization
+    token = token.split(' ')[1]
+
+    try {
+      if (!token) {
+        return res.status(400).send('bad token')
+      }
+  
+      const user = jwt.verify(token, JWT_SECRET)
+  
+      res.status(200).send({ message: 'You are all good.', ...user })
+    } catch (err) {
+      res.status(500).send({ message: 'Server error with JWT token.' })
+    }
+  })
+
 module.exports = usersRouter;
