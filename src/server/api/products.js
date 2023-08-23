@@ -2,7 +2,7 @@ const express = require('express')
 const productsRouter = express.Router();
 
 const {
-    createProduct, getAllProducts, getProductById, getProductByCategory,
+    createProduct, getAllProducts, getProductById, getProductByCategory, deleteProductById
 } = require('../db');
 
 productsRouter.get('/', async(req, res, next) =>{
@@ -53,5 +53,14 @@ productsRouter.get('/category/:productCategory', async(req, res, next)=>{
     }
   })
 
+productsRouter.delete('/:id', async(req, res, next)=>{
+    const {id} = req.params
+    try{
+        const deleteProduct = await deleteProductById(id)
+        res.send(deleteProduct)
+    }catch(err){
+        next(err)
+    }
+})
 
 module.exports = productsRouter;
