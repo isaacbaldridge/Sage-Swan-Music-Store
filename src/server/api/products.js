@@ -2,7 +2,7 @@ const express = require('express')
 const productsRouter = express.Router();
 
 const {
-    createProduct, getAllProducts, getProductById, getProductByCategory, deleteProductById
+    createProduct, getAllProducts, getProductById, getProductByCategory, deleteProductById, updateProductById
 } = require('../db');
 
 productsRouter.get('/', async(req, res, next) =>{
@@ -52,6 +52,16 @@ productsRouter.get('/category/:productCategory', async(req, res, next)=>{
       next(err)
     }
   })
+
+productsRouter.patch(`/:id`,async(req, res, next)=>{
+  try{
+    const updateProduct = await updateProductById(req.params.id, req.body)
+    res.send(updateProduct)
+  }catch(err){
+    next(err)
+  }
+
+})
 
 productsRouter.delete('/:id', async(req, res, next)=>{
     const {id} = req.params
