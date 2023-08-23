@@ -52,6 +52,9 @@ else {
 const usersRouter = require('./users');
 apiRouter.use('/users', usersRouter);
 
+const ordersRouter = require('./orders');
+apiRouter.use('/orders', ordersRouter);
+
 const productsRouter = require('./products');
 apiRouter.use('/products', productsRouter);
 apiRouter.use((err, req, res, next) => {
