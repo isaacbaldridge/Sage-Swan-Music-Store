@@ -27,10 +27,32 @@ const getAllProducts = async ()=>{
     }
 }
 
+const getProductById = async (productId)=>{
+    try{
+        const {rows: [product]} = await db.query(`
+       SELECT * FROM products WHERE id= $1;
+        `, [productId])
+        return product 
+    }catch(err){
+        throw err
+    }
+}
 
+const getProductByCategory = async (productCategory)=>{
+    try{
+        const {rows} = await db.query(`
+       SELECT * FROM products WHERE category= $1;
+        `, [productCategory])
+        return rows
+    }catch(err){
+        throw err
+    }
+}
 
 
 module.exports ={
     createProduct,
-    getAllProducts
+    getAllProducts,
+    getProductById,
+    getProductByCategory
 }
