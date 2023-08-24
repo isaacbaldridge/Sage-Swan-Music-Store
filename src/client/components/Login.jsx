@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({setToken}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -26,7 +29,10 @@ const Login = () => {
             })
         });
         const result = await response.json();
+        console.log(result)
         setMessage(result.message);
+        setToken(result.token)
+        navigate('/Profile')
         if(!response.ok) {
           throw(result)
         }
@@ -66,7 +72,8 @@ const Login = () => {
             required
           />
         </div>
-        <button type='submit'>Login</button>
+        <button type='submit'>Login</button> <br/>
+        <Link to="/Register">Don't have an account? Register HERE</Link>
       </form>
       <p>{message}</p>
     </div>
