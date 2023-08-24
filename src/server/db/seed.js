@@ -2,7 +2,7 @@ const db = require('./client');
 const { createUser } = require('./users');
 const {createProduct} = require('./products');
 const {createOrder} = require('./orders');
-
+const {createOrderProduct} = require('./order_products')
 const users = [
   { name: 'Porsha',
   username: 'Porsha123',
@@ -195,12 +195,61 @@ const orders = [
 ]
 
 
+const order_products = [
+  {
+    product_id: 8,
+    order_id: 1,
+    quantity: 1 
+  },
 
+  {
+    product_id: 3,
+    order_id: 2,
+    quantity: 3
+  },
+
+  {
+    product_id: 9,
+    order_id: 2,
+    quantity: 1
+
+  },
+
+  {
+    product_id: 7,
+    order_id: 3,
+    quantity: 4
+    
+  },
+
+  {
+   product_id: 11,
+   order_id: 3,
+   quantity: 1
+  },
+
+{
+  product_id: 2,
+  order_id: 4,
+  quantity: 1
+},
+
+{
+  product_id: 4, 
+  order_id: 5,
+  quantity: 2
+}
+
+
+]
 
 
 
 const dropTables = async () => {
     try {
+      await db.query (`
+        DROP TABLE IF EXISTS order_products;
+      `)
       await db.query(`
         DROP TABLE IF EXISTS orders;
         `)
@@ -249,7 +298,13 @@ const createTables = async () => {
             fulfilled BOOLEAN,
             order_total DECIMAL
           )`)
-  
+         
+          await db.query(`
+          CREATE TABLE order_products(
+            product_id INTEGER REFERENCES products(id),
+            order_id INTEGER REFERENCES orders(id),
+            quantity INTEGER 
+          )`)
     }
     catch(err) {
         throw err;
@@ -290,6 +345,23 @@ const insertProducts = async () =>{
   }
 };
 
+const insertOrderProducts = async () =>{
+  try{
+    for (const order_product of order_products) {
+      await createOrderProduct(
+        {
+          product_id: order_product.product_id,
+          order_id: order_product.order_id,
+          quantity: order_product.quantity
+        }
+      )
+    }
+    console.log('data insertion win ')
+  }catch(err)
+  {
+    console.log('No insertion, error', err)
+  }
+}
 const seedDatabse = async () => {
     try {
         db.connect();
@@ -298,6 +370,7 @@ const seedDatabse = async () => {
         await insertUsers();
         await insertProducts();
         await insertOrders();
+        await insertOrderProducts();
     }   
     catch (err) {
         throw err;
