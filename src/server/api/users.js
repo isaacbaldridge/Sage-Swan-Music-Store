@@ -57,7 +57,7 @@ usersRouter.post('/login', async(req, res, next) => {
 });
 
 usersRouter.post('/register', async(req, res, next) => {
-    const { name, username, password,email, address,isAdmin } = req.body;
+    const { name, username, password,email, address, isAdmin = false } = req.body;
     
     try {
         const _user = await getUserByEmail(email);
@@ -68,7 +68,7 @@ usersRouter.post('/register', async(req, res, next) => {
                 message: 'A user with that email already exists'
             });
         }
-
+console.log(password)
         const user = await createUser({
             name,
             username,

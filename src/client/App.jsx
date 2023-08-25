@@ -3,12 +3,14 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Home from './components/Home';
 import Profile from './components/Profile';
+import Nav from './components/Nav';
 import {Routes, Route} from 'react-router-dom';
 
 function App() {
 const [token, setToken] =  useState('');
   return (
     <> 
+    <Nav/>
     <Routes>
     <Route path="/" element={<Home />}>Home</Route>
        <Route path="/Login" element={<Login setToken={setToken} />}>Login</Route>

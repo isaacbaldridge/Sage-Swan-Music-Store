@@ -13,31 +13,33 @@ export default function Register({setToken}) {
 async function handleSubmit(e) {
     e.preventDefault();
 
-    if(error){
-        console.log('Did Not Send!')
-        setName("");
-          setUsername("");
-          setEmail("");
-          setPassword("");
-          setAddress("");
-        return
-    }
+    // if(error){
+    //     console.log('Did Not Send!')
+    //     setName("");
+    //       setUsername("");
+    //       setEmail("");
+    //       setPassword("");
+    //       setAddress("");
+    //     return
+    // }
 
+console.log(password)
+    try {
     let response = await fetch ('http://localhost:3000/api/users/register',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify ({
-            user: {
                 name, username, password, email, address
-            }
         })
     })
     let result = await response.json()
     console.log('register result', result)
     setToken(result.token)
-    navigate('../Login')
+    navigate('../Login')}
+    catch(error){console.log(error)
+    }
 }
 
 

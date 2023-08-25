@@ -3,8 +3,10 @@ const bcrypt = require('bcrypt');
 const SALT_COUNT = 10;
 
 const createUser = async({ name='first last', username, password, email, address, isAdmin }) => {
-    const hashedPassword = await bcrypt.hash(password, SALT_COUNT);
-    try {
+  console.log(password)  
+  const hashedPassword = await bcrypt.hash(password, SALT_COUNT);
+   console.log('randomlog') 
+  try {
         const { rows: [user ] } = await db.query(`
         INSERT INTO users(name, username, password, email, address, isAdmin)
         VALUES($1, $2, $3, $4, $5, $6)
