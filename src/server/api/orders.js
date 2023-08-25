@@ -16,14 +16,14 @@ ordersRouter.get('/', async(req, res, next) =>{
 })
 
 ordersRouter.post('/', requireUser, async(req, res, next) =>{
-    const { fulfilled, order_total} = req.body;
+    const { fulfilled} = req.body;
     const orderData = {};
     try{ 
         orderData.user_id = req.user.id;
         orderData.fulfilled = fulfilled;
-        orderData.order_total = order_total;
 
 
+        
         const order = await createOrder(orderData);
         if (order) {
             res.send(order);
@@ -64,17 +64,17 @@ ordersRouter.get('/:id', async (req, res, next) => {
 
   ordersRouter.patch('/:id', async (req, res, next) => {
     const {id} = req.params
-    const {fulfilled, order_total} = req.body;
+    const {fulfilled} = req.body;
     const updateFields = {};
 
   if (fulfilled) {
     updateFields.fulfilled = fulfilled;
   }
 
-  if (order_total) {
-    updateFields.order_total = order_total;
-  } 
-    try{ 
+    
+  
+  
+  try{ 
         const originalOrder = await getOrderById(id);
 
         const updatedOrder = await updateOrder(id, updateFields);
@@ -83,6 +83,30 @@ ordersRouter.get('/:id', async (req, res, next) => {
     } catch ({name,message}) {
         next({name,message})
     }
+
+  })
+
+  ordersRouter.get('/:id/fulfilled',requireUser, async (req, res, next) => {
+    let { id } = req.params;
+    try{
+      const allOrderByStatus = await getOrderById(id);
+      console.log ('getOrderById :',allOrderByStatus);
+      const orders = allOrderByStatus.filter(
+        order =>{
+          if(order.fulfilled === true){
+            return  false
+          }
+          else{
+            return  true
+          }
+        }
+      )
+      res.send ({orders})
+    }
+    catch ({name, message}){
+      next({name,message})
+    }
+
 
   })
 
