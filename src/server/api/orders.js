@@ -3,7 +3,7 @@ const ordersRouter = express.Router();
 const { requireUser } = require('./utils');
 
 const {
-    createOrder, getAllOrders, getOrderById, deleteOrderById, updateOrder
+    createOrder, getAllOrders, getOrderById, deleteOrderById, updateOrder, getOrderByUserId
 } = require('../db');
 
 ordersRouter.get('/', async(req, res, next) =>{
@@ -16,14 +16,14 @@ ordersRouter.get('/', async(req, res, next) =>{
 })
 
 ordersRouter.post('/', requireUser, async(req, res, next) =>{
-    const { fulfilled, order_total} = req.body;
+    const { fulfilled} = req.body;
     const orderData = {};
     try{ 
         orderData.user_id = req.user.id;
         orderData.fulfilled = fulfilled;
-        orderData.order_total = order_total;
 
 
+        
         const order = await createOrder(orderData);
         if (order) {
             res.send(order);
@@ -51,6 +51,36 @@ ordersRouter.delete('/:id', async (req, res, next) => {
   }
   });
 
+  ordersRouter.get('/cart',requireUser, async (req, res, next) => {
+    let user_id  = req.user.id;
+    console.log('user_id', user_id);
+    try{
+      const allOrdersByUser = await getOrderByUserId(user_id);
+      console.log ('getOrderByUserId :',allOrdersByUser);
+      //console.log(Object.values(users).filter(user => user.user_id === 1));
+      //if(allOrderByUser===true){
+
+      //}
+      const orders = (Object.values(allOrdersByUser).filter(
+        order =>{
+          if(order.fulfilled === false){
+            return  true
+          }
+          else{
+            return  false
+          }
+        }
+      ))
+      res.send ({orders})
+    }
+    catch ({name, message}){
+      next({name,message})
+    }
+
+
+  })
+
+
 
 ordersRouter.get('/:id', async (req, res, next) => {
     const {id} = req.params
@@ -64,17 +94,17 @@ ordersRouter.get('/:id', async (req, res, next) => {
 
   ordersRouter.patch('/:id', async (req, res, next) => {
     const {id} = req.params
-    const {fulfilled, order_total} = req.body;
+    const {fulfilled} = req.body;
     const updateFields = {};
 
   if (fulfilled) {
     updateFields.fulfilled = fulfilled;
   }
 
-  if (order_total) {
-    updateFields.order_total = order_total;
-  } 
-    try{ 
+    
+  
+  
+  try{ 
         const originalOrder = await getOrderById(id);
 
         const updatedOrder = await updateOrder(id, updateFields);
@@ -85,6 +115,12 @@ ordersRouter.get('/:id', async (req, res, next) => {
     }
 
   })
+
+
+  //Token -user_id:5 -> eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJiZWxsYUBleGFtcGxlLmNvbSIsImlhdCI6MTY5Mjk3NjEzNywiZXhwIjoxNjkzNTgwOTM3fQ.9i9YIFzSbhY2c_-YZ5HelbdThfN85Cd8mQefjiEXaX8
+  //Token -user_id:7 ->eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJqb2huQGV4YW1wbGUuY29tIiwiaWF0IjoxNjkyOTc2NzYxLCJleHAiOjE2OTM1ODE1NjF9.I5a8-x4szX0QIRN1VKat3UKy54f0vbA4zpfT7Vc3HQs
+  
+  
 
 module.exports = ordersRouter;
 

@@ -1,10 +1,10 @@
 const db = require('./client')
-const createOrder = async ({user_id, fulfilled, order_total}) => {
+const createOrder = async ({user_id, fulfilled}) => {
     try{
         const{rows:[order]} = await db.query(`
-        INSERT INTO orders(user_id, fulfilled,order_total )
-        VALUES($1,$2,$3)
-        RETURNING *`, [user_id, fulfilled, order_total]
+        INSERT INTO orders(user_id, fulfilled )
+        VALUES($1,$2)
+        RETURNING *`, [user_id, fulfilled]
         ) 
         return order
 
@@ -42,6 +42,31 @@ async function getOrderById(orderId) {
         throw error;
       }
     }
+
+async function getOrderByUserId(userId) {
+  try{
+    const { rows : orders } = await db.query(`
+    SELECT *
+    FROM orders
+    WHERE user_id =$1;
+    `, [userId]);
+    console.log(orders);
+  
+  if (!orders) {
+    throw {
+      name: "Order Not Found Error for user",
+      message: "Could not find an order with that userid "
+    };
+  }
+  const result = await Promise.all(Object.values(orders).map(order => getOrderById(order.id)));
+  console.log('result from gerOrderByuserId',result);
+return result;
+
+}catch(error){
+    throw error;
+  }
+
+}
   
  const deleteOrderById = async(orderId) => {
       try{
@@ -78,4 +103,4 @@ async function getOrderById(orderId) {
   }
 
  module.exports = {createOrder,
-getAllOrders, getOrderById, deleteOrderById, updateOrder};
+getAllOrders, getOrderById, getOrderByUserId, deleteOrderById, updateOrder};
