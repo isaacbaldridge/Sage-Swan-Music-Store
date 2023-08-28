@@ -37,7 +37,12 @@ console.log(password)
     let result = await response.json()
     console.log('register result', result)
     setToken(result.token)
-    navigate('../Login')}
+    if (setToken){navigate('../Login')} else{
+        return "error"
+    }
+
+    
+    }
     catch(error){console.log(error)
     }
 }
