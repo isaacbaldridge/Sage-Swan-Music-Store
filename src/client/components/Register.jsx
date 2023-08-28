@@ -13,15 +13,15 @@ export default function Register({setToken}) {
 async function handleSubmit(e) {
     e.preventDefault();
 
-    // if(error){
-    //     console.log('Did Not Send!')
-    //     setName("");
-    //       setUsername("");
-    //       setEmail("");
-    //       setPassword("");
-    //       setAddress("");
-    //     return
-    // }
+    if(error){
+        console.log('Did Not Send!')
+        setName("");
+          setUsername("");
+          setEmail("");
+          setPassword("");
+          setAddress("");
+        return
+    }
 
 console.log(password)
     try {
@@ -37,7 +37,12 @@ console.log(password)
     let result = await response.json()
     console.log('register result', result)
     setToken(result.token)
-    navigate('../Login')}
+    if (setToken){navigate('../Login')} else{
+        return "error"
+    }
+
+    
+    }
     catch(error){console.log(error)
     }
 }
