@@ -13,15 +13,15 @@ export default function Register({setToken}) {
 async function handleSubmit(e) {
     e.preventDefault();
 
-    // if(error){
-    //     console.log('Did Not Send!')
-    //     setName("");
-    //       setUsername("");
-    //       setEmail("");
-    //       setPassword("");
-    //       setAddress("");
-    //     return
-    // }
+if(error){
+     console.log('Did Not Send!')
+    setName("");
+    setUsername("");
+    setEmail("");
+    setPassword("");
+    setAddress("");
+    return
+    }
 
 console.log(password)
     try {
