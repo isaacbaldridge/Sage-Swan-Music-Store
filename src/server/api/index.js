@@ -57,6 +57,10 @@ apiRouter.use('/orders', ordersRouter);
 
 const productsRouter = require('./products');
 apiRouter.use('/products', productsRouter);
+
+const orderProductsRouter = require('./order_products');
+apiRouter.use('/order_products', orderProductsRouter);
+
 apiRouter.use((err, req, res, next) => {
   console.trace(err)
     res.status(500).send(err)
