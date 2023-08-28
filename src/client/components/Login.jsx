@@ -32,7 +32,9 @@ const Login = ({setToken}) => {
         console.log(result)
         setMessage(result.message);
         setToken(result.token)
-        navigate('/Profile')
+        if(result.token){
+          navigate('/Profile') 
+        }
         if(!response.ok) {
           throw(result)
         }
