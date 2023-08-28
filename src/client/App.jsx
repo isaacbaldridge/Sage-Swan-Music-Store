@@ -1,18 +1,25 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
 import Login from './components/Login';
+import Register from './components/Register';
+import Home from './components/Home';
+import Profile from './components/Profile';
+import Nav from './components/Nav';
+import {Routes, Route} from 'react-router-dom';
 
 function App() {
-  const [count, setCount] = useState(0);
-
+const [token, setToken] =  useState('');
   return (
-    <div className='App'>
-        <h1>Boilerplate</h1>
-        <img id='comp-img' src='./computer.png'></img>
-        <p>Replace the starter code in this template with something cool</p>
-        <Login />
-    </div>
+    <> 
+    <Nav/>
+    <Routes>
+    <Route path="/" element={<Home />}>Home</Route>
+       <Route path="/Login" element={<Login setToken={setToken} />}>Login</Route>
+       <Route path="/Register" element={<Register setToken={setToken} />}>Register</Route>
+       <Route path="/Profile" element={<Profile token={token} />}>Profile</Route>
+       </Routes>
+    </>
   );
+
 }
 
 export default App;
