@@ -48,8 +48,7 @@ async function getJoinedOrder(orderId) {
   try {
     const {rows} = await db.query(`
     SELECT
-    orders.id,
-    products.id,
+    products.id AS product_id,
     orders.fulfilled,
     orders.user_id,
     order_products.quantity,
