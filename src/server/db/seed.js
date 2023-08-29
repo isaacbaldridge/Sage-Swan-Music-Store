@@ -78,7 +78,7 @@ const products = [
     name: "Telecaster",
     description: "For all your best country tunes",
     price: 2499.99,
-    image: src = "https://media.sweetwater.com/api/i/b-original__w-300__h-450__q-85__f-webp__ha-0bcc206cdcb5e438__hmac-ba6502cbb3217f67c37d40b28eae6fa7f01b131d/images/guitars/TeleAV251BB/V2324728/V2324728-body-large.jpg.auto.webp"
+    image: "https://media.sweetwater.com/api/i/b-original__w-300__h-450__q-85__f-webp__ha-0bcc206cdcb5e438__hmac-ba6502cbb3217f67c37d40b28eae6fa7f01b131d/images/guitars/TeleAV251BB/V2324728/V2324728-body-large.jpg.auto.webp"
 },
 
 {
@@ -87,7 +87,7 @@ const products = [
   name: "Jazzmaster",
   description: "For all your best jazzy tunes",
   price: 499.99,
-  image: src = "https://media.sweetwater.com/api/i/q-70__h-300__w-300__f-png__b-original/images/items/1800/JazzGFCAB-xlarge.jpg"
+  image:  "https://media.sweetwater.com/api/i/q-70__h-300__w-300__f-png__b-original/images/items/1800/JazzGFCAB-xlarge.jpg"
 },
 
 {
@@ -96,7 +96,7 @@ const products = [
   name: "Les Paul",
   description: "For all your classic rock tunes",
   price: 4999.99,
-  image: src = "https://media.sweetwater.com/api/i/b-original__w-300__h-450__q-85__f-webp__ha-98dafcb7cf4dc0d5__hmac-95366a2542c4794160432c87704058d37288aae0/images/guitars/LPS5SWHCSB/215030286/215030286-body-large.jpg.auto.webp"
+  image:  "https://media.sweetwater.com/api/i/b-original__w-300__h-450__q-85__f-webp__ha-98dafcb7cf4dc0d5__hmac-95366a2542c4794160432c87704058d37288aae0/images/guitars/LPS5SWHCSB/215030286/215030286-body-large.jpg.auto.webp"
 },
 
 {
@@ -105,7 +105,7 @@ const products = [
   name: "ES-335",
   description: "Feelin' bluesy?",
   price: 5499.99,
-  image: src = "https://media.sweetwater.com/api/i/q-70__h-300__w-300__f-png__b-original/images/items/1800/ES35F00SCNH-xlarge.jpg"
+  image:  "https://media.sweetwater.com/api/i/q-70__h-300__w-300__f-png__b-original/images/items/1800/ES35F00SCNH-xlarge.jpg"
 },
 
 {
@@ -114,7 +114,7 @@ const products = [
   name: "PAC Series",
   description: "Great for beginners.",
   price: 299.99,
-  image: src = "https://media.sweetwater.com/api/i/q-70__h-300__w-300__f-png__b-original/images/items/1800/PAC612VIIFMIB-xlarge.jpg"
+  image: "https://media.sweetwater.com/api/i/q-70__h-300__w-300__f-png__b-original/images/items/1800/PAC612VIIFMIB-xlarge.jpg"
 },
   
 // ABOVE STRINGED INSTRUMENTS, BELOW PERCUSSION//
@@ -124,7 +124,7 @@ const products = [
   name: "Tambourine",
   description: "A fine tambourine",
   price: 64.99,
-  image: src = "https://media.sweetwater.com/api/i/b-original__w-215__h-215__bg-ffffff__q-85__f-webp__ha-9c567fd0b8f86f30__hmac-2bd634bc030757dc48169a40ea63a99b41ce6ca8/images/items/350/TAH2M-SNT.jpg.auto.webp"
+  image:  "https://media.sweetwater.com/api/i/b-original__w-215__h-215__bg-ffffff__q-85__f-webp__ha-9c567fd0b8f86f30__hmac-2bd634bc030757dc48169a40ea63a99b41ce6ca8/images/items/350/TAH2M-SNT.jpg.auto.webp"
 },
 
 {
@@ -133,7 +133,7 @@ brand: "Zildjian",
 name: "Cymbal",
 description: "An okay cymbal",
 price: 389.99,
-image: src = "https://media.sweetwater.com/api/i/b-original__w-215__h-215__bg-ffffff__q-85__f-webp__ha-1e92aa666a670a5d__hmac-0d7cd9bc3cd2ee662f358e6c273fa5f8e7f3b5b1/images/items/350/KC18DC.jpg.auto.webp"
+image: "https://media.sweetwater.com/api/i/b-original__w-215__h-215__bg-ffffff__q-85__f-webp__ha-1e92aa666a670a5d__hmac-0d7cd9bc3cd2ee662f358e6c273fa5f8e7f3b5b1/images/items/350/KC18DC.jpg.auto.webp"
 },
 
 {
@@ -142,7 +142,7 @@ brand: "Tama S.L.P",
 name: "snare",
 description: "An EPIC snare",
 price: 299.99,
-image: src = "https://media.sweetwater.com/api/i/q-70__h-300__w-300__f-png__b-original/images/items/1800/LST148-xlarge.jpg"
+image:  "https://media.sweetwater.com/api/i/q-70__h-300__w-300__f-png__b-original/images/items/1800/LST148-xlarge.jpg"
 },
 
 {
@@ -151,7 +151,7 @@ brand: "Treeworks",
 name: "Triangle",
 description: "A very cute triangle",
 price: 25.99,
-image: src = "https://media.sweetwater.com/api/i/b-original__w-215__h-215__bg-ffffff__q-85__f-webp__ha-70f93421c089e7bb__hmac-7565f3f9443b45a5b046c46659f302224ac7ac50/images/items/350/TRE-HS06.jpg.auto.webp"
+image:  "https://media.sweetwater.com/api/i/b-original__w-215__h-215__bg-ffffff__q-85__f-webp__ha-70f93421c089e7bb__hmac-7565f3f9443b45a5b046c46659f302224ac7ac50/images/items/350/TRE-HS06.jpg.auto.webp"
 },
 
 {
@@ -160,7 +160,7 @@ brand: "Meinl Percussion",
 name: "Cow Bell",
 description: "Because you ALWAYS need more cow bell.",
 price: 89.99,
-image: src = "https://media.sweetwater.com/api/i/b-original__w-215__h-215__bg-ffffff__q-85__f-webp__ha-a4aae4e199a75c76__hmac-12cca3bf23bad71afd14179bcb3cd19b89cf9985/images/items/350/MJ-GB.jpg.auto.webp"
+image: "https://media.sweetwater.com/api/i/b-original__w-215__h-215__bg-ffffff__q-85__f-webp__ha-a4aae4e199a75c76__hmac-12cca3bf23bad71afd14179bcb3cd19b89cf9985/images/items/350/MJ-GB.jpg.auto.webp"
 },
 
 ];
@@ -410,5 +410,5 @@ const seedDatabse = async () => {
         db.end()
     }
 }
-
+/* comment test*/
 seedDatabse()
