@@ -43,6 +43,29 @@ async function getOrderById(orderId) {
       }
     }
 
+
+async function getJoinedOrder(orderId) {
+  try {
+    const {rows: [order]} = await db.query(`
+    SELECT products.id,
+    orders.id,
+    orders.fulfilled,
+    orders.user_id,
+    order_products.quantity,
+    products.name,
+    products.price,
+    products.brand
+    FROM orders
+    JOIN order_products ON orders.id = order_products.order_id
+    JOIN products ON order_products.product_id = products.id
+    WHERE orders.id = $1;
+    `, [orderId])
+    return order
+  } catch (err) {
+    throw err
+  }
+}
+
 async function getOrderByUserId(userId) {
   try{
     const { rows : orders } = await db.query(`
@@ -58,7 +81,7 @@ async function getOrderByUserId(userId) {
       message: "Could not find an order with that userid "
     };
   }
-  const result = await Promise.all(Object.values(orders).map(order => getOrderById(order.id)));
+  const result = await Promise.all(Object.values(orders).map(order => getJoinedOrder(order.id)));
   console.log('result from gerOrderByuserId',result);
 return result;
 
