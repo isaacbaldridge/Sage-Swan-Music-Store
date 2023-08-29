@@ -12,6 +12,7 @@ export default function Nav({token}) {
             <Link to = '/Login'>Login</Link>
             {token ? <Link to = '/Profile'>Profile</Link> : null}
             <Link to = '/Cart'>Cart</Link>
+            {token ? <Link to = '/Logout'>Log Out</Link> : null}
 
         </div>
     )
