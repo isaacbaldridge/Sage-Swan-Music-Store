@@ -12,7 +12,7 @@ function App() {
 const [token, setToken] =  useState('');
   return (
     <> 
-    <Nav/>
+    <Nav token={token}/>
     <Routes>
     <Route path="/" element={<Home />}>Home</Route>
        <Route path="/Login" element={<Login setToken={setToken} />}>Login</Route>

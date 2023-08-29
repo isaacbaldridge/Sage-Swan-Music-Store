@@ -8,20 +8,12 @@ export default function Register({setToken}) {
     const [email,setEmail] = useState ('');
     const [address,setAddress] = useState ('');
     const [error, setError] = useState(null);
+    const [successMessage, setSuccessMessage] = useState("");
     const navigate = useNavigate();
 
 async function handleSubmit(e) {
     e.preventDefault();
 
-    if(error){
-        console.log('Did Not Send!')
-        setName("");
-          setUsername("");
-          setEmail("");
-          setPassword("");
-          setAddress("");
-        return
-    }
 
 console.log(password)
     try {
@@ -37,13 +29,19 @@ console.log(password)
     let result = await response.json()
     console.log('register result', result)
     setToken(result.token)
-    if (setToken){navigate('../Login')} else{
-        return "error"
-    }
+    setSuccessMessage(result.message)
+    setName("");
+    setUsername("");
+    setEmail("");
+    setPassword("");
+    setAddress("");
+    // navigate('../Login')
 
     
     }
     catch(error){console.log(error)
+        setError(error.message);
+            console.log('Did Not Send!')
     }
 }
 
@@ -51,6 +49,7 @@ console.log(password)
     return(
         <div className = "register">
             <h2>Register</h2>
+            {error && <p>{error}</p>}
             <form className='form' onSubmit={handleSubmit}>
 
                 <label>Name</label>
@@ -65,6 +64,7 @@ console.log(password)
                 <input value = {address} type='text'onChange={(e) => setAddress(e.target.value)}/> <br/>
                 <button>Register</button>
             </form>
+            {successMessage && <p>{successMessage}</p>}
         </div>
     )
 
