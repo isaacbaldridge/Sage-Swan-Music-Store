@@ -183,7 +183,7 @@ const orders = [
       },
       {
         user_id: 7,
-        fulfilled: false
+        fulfilled: true
 
         },
         {
@@ -193,7 +193,7 @@ const orders = [
           },
           {
             user_id: 7,
-            fulfilled: true
+            fulfilled: false
           }
 
 ]

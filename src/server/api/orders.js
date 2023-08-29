@@ -61,7 +61,7 @@ ordersRouter.delete('/:id', async (req, res, next) => {
       //if(allOrderByUser===true){
 
       //}
-      const orders = (Object.values(allOrdersByUser[0]).filter(
+      const orders = (Object.values(allOrdersByUser[allOrdersByUser.length - 1]).filter(
         order =>{
           if(order.fulfilled === false){
             return  true
@@ -76,7 +76,6 @@ ordersRouter.delete('/:id', async (req, res, next) => {
     catch ({name, message}){
       next({name,message})
     }
-
 
   })
 
