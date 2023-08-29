@@ -191,6 +191,10 @@ const orders = [
           fulfilled: true
 
           },
+          {
+            user_id: 7,
+            fulfilled: true
+          }
 
 ]
 
@@ -235,9 +239,34 @@ const order_products = [
 },
 
 {
+  product_id: 3,
+  order_id: 4,
+  quantity: 2
+},
+
+{
   product_id: 4, 
   order_id: 5,
   quantity: 2
+},
+
+{
+  product_id: 5,
+  order_id: 5,
+  quantity: 3
+},
+
+{
+  product_id: 6,
+  order_id: 6,
+  quantity: 2
+},
+
+{
+  product_id: 9,
+  order_id: 6,
+  quantity: 1
+
 }
 
 

@@ -46,9 +46,10 @@ async function getOrderById(orderId) {
 
 async function getJoinedOrder(orderId) {
   try {
-    const {rows: [order]} = await db.query(`
-    SELECT products.id,
+    const {rows} = await db.query(`
+    SELECT
     orders.id,
+    products.id,
     orders.fulfilled,
     orders.user_id,
     order_products.quantity,
@@ -58,9 +59,9 @@ async function getJoinedOrder(orderId) {
     FROM orders
     JOIN order_products ON orders.id = order_products.order_id
     JOIN products ON order_products.product_id = products.id
-    WHERE orders.id = $1;
+    WHERE order_products.order_id = $1;
     `, [orderId])
-    return order
+    return rows
   } catch (err) {
     throw err
   }
