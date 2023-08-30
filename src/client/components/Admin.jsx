@@ -11,6 +11,7 @@ export default function Admin({token}) {
     const [description,setDescription]=useState('');
     const [price,setPrice]=useState('');
     const [image,setImage]=useState('');
+    const [singleProduct, setSingleProduct] = useState([]);
     
     const navigate = useNavigate();
     
@@ -62,7 +63,6 @@ export default function Admin({token}) {
 //Add Product function
     async function handleSubmit(e) {
         e.preventDefault();
-    
         try {
         let response = await fetch ('http://localhost:3000/api/products',{
             method: 'POST',
@@ -91,9 +91,11 @@ export default function Admin({token}) {
 
 
     //Edit function
-    useEffect(()=>{
-    async function handleChange({e,id}) {
-        e.preventDefault();
+   
+    async function handleChange(id) {
+        const updateProduct = async()=>{
+        console.log('id:' ,id);
+
         try {
         let response = await fetch (`http://localhost:3000/api/products/${id}`,{
             method: 'PATCH',
@@ -106,21 +108,25 @@ export default function Admin({token}) {
         })
         let result = await response.json()
         console.log('Edit Product result', result)
-         setCategory('');
-         setBrand("");
-         setName("");
-         setDescription("");
-        setPrice("");
-        setImage("");
+        setSingleProduct(result);
+        
+         
         
         }
         catch(error){console.log(error)
             setError(error.message);
                 console.log('Did Not Edit!')
         }
+    }
+    updateProduct();
+    setCategory('');
+         setBrand("");
+         setName("");
+         setDescription("");
+        setPrice("");
+        setImage("");
     } 
-    handleChange();
-},[])
+
 
     
     
@@ -144,11 +150,11 @@ export default function Admin({token}) {
             <div key = {product.id}>
             <h3>{product.name}</h3> 
             <p>{product.description}</p> 
-            <p>{product.price}</p>
+            <p>{product.price}$</p>
             <p><img src={product.image}/></p> 
             <details>
                 <summary>Edit Product</summary>
-                <form className='form' onSubmit={handleChange(product.id)}>
+                <form className='form' onSubmit={()=>handleChange(product.id)}>
 
                 <label>Category</label>
                 <input value = {category} type='text'onChange={(e) => setCategory(e.target.value)}/> <br/>
@@ -162,7 +168,7 @@ export default function Admin({token}) {
                 <input value = {price} type='decimal'onChange={(e) => setPrice(e.target.value)}/> <br/>
                 <label>Image</label>
                 <input value = {image} type='text'onChange={(e) => setImage(e.target.value)}/> <br/>
-                <button>EDIT PRODUCT</button>
+                <button >EDIT PRODUCT</button>
             </form>
               
             </details>
