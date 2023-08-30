@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
-export default function Nav({token}) {
+export default function Nav({token, setToken}) {
+    const navigate = useNavigate()
+
     console.log(token)
     return(
         <div className = "navbar">
@@ -12,7 +14,12 @@ export default function Nav({token}) {
             <Link to = '/Login'>Login</Link>
             {token ? <Link to = '/Profile'>Profile</Link> : null}
             <Link to = '/Cart'>Cart</Link>
-            {token ? <Link to = '/Logout'>Log Out</Link> : null}
+            {token ? <button onClick={() => {
+                setToken(null)
+                localStorage.removeItem("token")
+                localStorage.removeItem("loggedIn")
+                navigate('/')
+                }}>Log out</button> : null}
 
         </div>
     )
