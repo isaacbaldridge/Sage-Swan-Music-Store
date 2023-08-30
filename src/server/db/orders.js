@@ -54,7 +54,8 @@ async function getJoinedOrder(orderId) {
     order_products.quantity,
     products.name,
     products.price,
-    products.brand
+    products.brand,
+    products.image
     FROM orders
     JOIN order_products ON orders.id = order_products.order_id
     JOIN products ON order_products.product_id = products.id
