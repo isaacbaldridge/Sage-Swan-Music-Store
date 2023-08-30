@@ -33,6 +33,7 @@ export default function SingleProduct() {
             </div>
             <Link to ='/'><button>Go Back</button></Link>
             <Link to ='/Cart'><button>Add To Cart</button></Link>
+           
             </div>
 
         </>)
