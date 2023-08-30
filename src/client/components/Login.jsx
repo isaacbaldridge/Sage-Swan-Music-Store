@@ -32,6 +32,9 @@ const Login = ({setToken}) => {
         console.log(result)
         setMessage(result.message);
         setToken(result.token)
+        localStorage.setItem("token", JSON.stringify(result.token))
+
+        localStorage.setItem("loggedIn", true)
         if(result.token){
           navigate('/Profile') 
         }

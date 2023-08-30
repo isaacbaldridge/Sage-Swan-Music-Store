@@ -57,7 +57,7 @@ usersRouter.post('/login', async(req, res, next) => {
 });
 
 usersRouter.post('/register', async(req, res, next) => {
-    const { name, username, password,email, address, isAdmin = false } = req.body;
+    const { name, username, password, email, address, isAdmin = false } = req.body;
     
     try {
         const _user = await getUserByEmail(email);
