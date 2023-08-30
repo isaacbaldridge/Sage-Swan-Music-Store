@@ -51,16 +51,13 @@ ordersRouter.delete('/:id', async (req, res, next) => {
   }
   });
 
-  ordersRouter.get('/cart',requireUser, async (req, res, next) => {
-    let user_id  = req.user.id;
+  ordersRouter.get('/cart/:user_id',requireUser, async (req, res, next) => {
+    // let user_id  = req.user.id;
+    const {user_id} = req.params
     console.log('user_id', user_id);
     try{
       const allOrdersByUser = await getOrderByUserId(user_id);
       console.log ('getOrderByUserId :',allOrdersByUser);
-      //console.log(Object.values(users).filter(user => user.user_id === 1));
-      //if(allOrderByUser===true){
-
-      //}
       const orders = (Object.values(allOrdersByUser[allOrdersByUser.length - 1]).filter(
         order =>{
           if(order.fulfilled === false){
@@ -71,9 +68,11 @@ ordersRouter.delete('/:id', async (req, res, next) => {
           }
         }
       ))
+      console.log("testing")
       res.send ({orders})
     }
     catch ({name, message}){
+      console.log("there was an error")
       next({name,message})
     }
 
