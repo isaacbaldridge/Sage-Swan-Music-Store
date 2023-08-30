@@ -29,13 +29,18 @@ console.log(password)
     let result = await response.json()
     console.log('register result', result)
     setToken(result.token)
+    if(result.token){
+        navigate('/Login') 
+      }
+      if(!response.ok) {
+        throw(result)
+      }
     setSuccessMessage(result.message)
     setName("");
     setUsername("");
     setEmail("");
     setPassword("");
     setAddress("");
-    // navigate('../Login')
 
     
     }
