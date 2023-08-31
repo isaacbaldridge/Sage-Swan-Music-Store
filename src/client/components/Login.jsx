@@ -46,16 +46,16 @@ const Login = ({setToken, userInfo, setUserInfo}) => {
         }
         setEmail('');
         setPassword('');
-    } catch (err) {
+    } }
+    catch (err) {
         console.error(`${err.name}: ${err.message}`);
-    }
   }
-
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     login();
   };
-
+  
   return (
     <div>
       <h2>Login</h2>
@@ -87,5 +87,6 @@ const Login = ({setToken, userInfo, setUserInfo}) => {
     </div>
   );
 };
+
 
 export default Login;
