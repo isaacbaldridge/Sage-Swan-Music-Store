@@ -15,7 +15,7 @@ async function handleSubmit(e) {
     e.preventDefault();
 
 
-console.log(password)
+//console.log(password)
     try {
     let response = await fetch ('http://localhost:3000/api/users/register',{
         method: 'POST',

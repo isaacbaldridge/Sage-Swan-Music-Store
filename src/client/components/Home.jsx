@@ -35,7 +35,7 @@ export default function Home() {
             onClick={()=>navigate(`/${product.id}`)}>
             <h3>{product.name}</h3> 
             <p>{product.description}</p> 
-            <p>{product.price}</p>
+            <p>{product.price}$</p>
             <p><img src={product.image}/></p>
             </div>
         ))}

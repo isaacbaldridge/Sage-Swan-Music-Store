@@ -42,10 +42,12 @@ export default function Profile({token}) {
         
         <h3>Include purchase history here!!!</h3></div>
 
-        {/*<div className="Admin">
-            {user.isAdmin === true
-            <button onClick={() => }}
-            </div>*/}
+          {console.log(user.isadmin)}
+        {<div className="Admin"> 
+            {user.isadmin === true ?
+            <button onClick={() => navigate('/Admin')}> Admin Access </button> : null }
+    
+             </div>}
         </>
     )
 

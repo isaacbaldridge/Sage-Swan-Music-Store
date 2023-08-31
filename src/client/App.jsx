@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import Nav from './components/Nav';
 import Cart from './components/Cart';
+import Admin from './components/Admin';
 import {Routes, Route} from 'react-router-dom';
 import SingleProduct from './components/SingleProduct';
 
@@ -32,6 +33,7 @@ const [loggedIn, setLoggedIn] = useState(null)
        <Route path="/Register" element={<Register setToken={setToken} />}>Register</Route>
        <Route path="/Profile" element={ <Profile token={token}/> }>Profile</Route>
        <Route path="/Cart" element={<Cart/>}>Cart</Route>
+       <Route path="/Admin" element={<Admin token={token}/>}>Admin</Route>
        <Route path="/:id" element={<SingleProduct/>}>SingleProduct</Route>
        </Routes>
     </>
