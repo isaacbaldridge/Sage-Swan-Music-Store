@@ -85,7 +85,17 @@ export default function Cart({token, userInfo, setUserInfo}) {
             }
         }
         updateQuantity()
+    }
 
+    async function deleteCartItem(product_id, order_id){
+        console.log(token);
+        const response = await fetch(`/api/order_products/byBothIds/${product_id}/${order_id}`,{
+        method: "DELETE",
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }})
+        const result = await response.json();
     }
 
     return (
@@ -124,7 +134,7 @@ export default function Cart({token, userInfo, setUserInfo}) {
             <option value = "4">4</option>
             <option value = "5">5</option>
         </select> */}
-        <button>Remove</button>
+        <button onClick={() => deleteCartItem(item.product_id, item.order_id)}>Remove</button>
     </div>)
         }
        
