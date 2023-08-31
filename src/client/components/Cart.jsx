@@ -98,44 +98,51 @@ export default function Cart({token, userInfo, setUserInfo}) {
         const result = await response.json();
     }
 
+    async function clearCart(order_id) {
+        const response = await fetch(`/api/order_products/byOrderId/${order_id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }})
+            const result = await response.json()
+    }
+
     return (
     <>
         <div className = "Cart">Cart Page</div>
 
-        <h2>Total: {}</h2>
 
         {cartItems.orders &&
         
+        <section>
+            <h2>Total: {}</h2>
+            <button onClick={() => clearCart(cartItems.orders[0].order_id)}>Clear cart</button>
 
-        cartItems.orders.map((item) => <div key = {item.product_id}>
-        <h3>{item.brand}, {item.name}</h3>
-        <img src = {item.image}/>
-        <h3>{item.name}</h3>
-        <h4>Price: ${item.price}</h4>
-        <h4>Quantity: {item.quantity}</h4>
-        <form onSubmit = {() => handleQtyUpdate(item.product_id, item.order_id)}>
-            <label htmlFor="quantity">Change Quantity</label>
-            <input
-            type="number"
-            id="quantity"
-            name = "quantity"
-            min="1"
-            value = {quantity}
-            onChange = {(e) => setQuantity(e.target.value)}></input>
-            <button>Update Qty</button>
-        </form>
-        {/* <input type = "number"></input> */}
 
-        {/* add an onclick event for select option to change quantity */}
-        {/* <select onClick={() => updateQuantity(productId)}>
-            <option value = "1">1</option>
-            <option value = "2">2</option>
-            <option value = "3">3</option>
-            <option value = "4">4</option>
-            <option value = "5">5</option>
-        </select> */}
-        <button onClick={() => deleteCartItem(item.product_id, item.order_id)}>Remove</button>
-    </div>)
+            {cartItems.orders.map((item) => <div key = {item.product_id}>
+                <h3>{item.brand}, {item.name}</h3>
+                <img src = {item.image}/>
+                <h3>{item.name}</h3>
+                <h4>Price: ${item.price}</h4>
+                <h4>Quantity: {item.quantity}</h4>
+                <form onSubmit = {() => handleQtyUpdate(item.product_id, item.order_id)}>
+                    <label htmlFor="quantity">Change Quantity</label>
+                    <input
+                    type="number"
+                    id="quantity"
+                    name = "quantity"
+                    min="1"
+                    value = {quantity}
+                    onChange = {(e) => setQuantity(e.target.value)}></input>
+                    <button>Update Qty</button>
+                </form>
+                <button onClick={() => deleteCartItem(item.product_id, item.order_id)}>Remove</button>
+                </div>)}
+
+        </section>
+
+
         }
        
     </>
