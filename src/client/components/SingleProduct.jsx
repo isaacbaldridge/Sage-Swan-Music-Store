@@ -22,32 +22,63 @@ export default function SingleProduct({userInfo, token}) {
     async function addProductToCart(product_id) {
 
         try {
-
-            const cartResponse = await fetch (`/api/orders/cart/${userInfo.id}`,{
-                method: "GET",
+            try {
+                const cartResponse = await fetch (`/api/orders/cart/${userInfo.id}`,{
+                    method: "GET",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`}
+                    })
+                const cartItems = await cartResponse.json()
+                const order_id = cartItems.orders[0].order_id
+    
+                // console.log(cartItems)
+                // console.log(cartItems.orders[0].order_id)
+                // console.log(order_id)
+                
+            let response = await fetch ('http://localhost:3000/api/order_products',{
+                method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`}
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify ({
+                        product_id,
+                        order_id,
+                        quantity: 1
                 })
-            const cartItems = await cartResponse.json()
-            // console.log(cartItems)
-            // console.log(cartItems.orders[0].order_id)
-            const order_id = cartItems.orders[0].order_id
-            // console.log(order_id)
-
-        let response = await fetch ('http://localhost:3000/api/order_products',{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify ({
-                    product_id,
-                    order_id,
-                    quantity: 1
             })
-        })
-        let result = await response.json()
-        console.log('Add Product to cart result', result)
+            let result = await response.json()
+            console.log('Add Product to cart result', result)
+
+            } catch {
+                const createNewOrder = await fetch("/api/orders", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
+                    },
+                    body: JSON.stringify ({
+                        fulfilled: false
+                    })
+                })
+                const newOrder = await createNewOrder.json()
+                console.log("this is the new order: ", newOrder)
+                const order_id = newOrder.id
+
+                let response = await fetch ('http://localhost:3000/api/order_products',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify ({
+                            product_id,
+                            order_id,
+                            quantity: 1
+                    })
+                })
+                let result = await response.json()
+                console.log('Add Product to cart result', result)
+            }
 
 
         }

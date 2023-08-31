@@ -82,7 +82,7 @@ export default function Cart({token, userInfo, setUserInfo}) {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${token}`
             }})
-            const result = await response.json()
+            await response.json()
     }
 
     async function checkoutCart(order_id) {
@@ -144,6 +144,7 @@ export default function Cart({token, userInfo, setUserInfo}) {
         
         
                     {cartItems.orders.map((item) => <div key = {item.product_id}>
+                        <h2>Order ID: {item.order_id}</h2>
                         <h3>{item.brand}, {item.name}</h3>
                         <img src = {item.image}/>
                         <h3>{item.name}</h3>
