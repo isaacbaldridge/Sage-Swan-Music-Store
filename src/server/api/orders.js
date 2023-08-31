@@ -78,6 +78,37 @@ ordersRouter.delete('/:id', async (req, res, next) => {
 
   })
 
+
+  // ordersRouter.patch('/cart/:user_id',requireUser, async (req, res, next) => {
+  //   // let user_id  = req.user.id;
+  //   const {user_id} = req.params
+  //   console.log('user_id', user_id);
+  //   try{
+  //     const allOrdersByUser = await getOrderByUserId(user_id);
+  //     console.log ('getOrderByUserId :',allOrdersByUser);
+  //     const orders = (Object.values(allOrdersByUser[allOrdersByUser.length - 1]).filter(
+  //       order =>{
+  //         if(order.fulfilled === false){
+
+  //           return  true
+  //         }
+  //         else{
+  //           return  false
+  //         }
+  //       }
+  //     ))
+  //     console.log("testing")
+  //     res.send ({orders})
+  //   }
+  //   catch ({name, message}){
+  //     console.log("there was an error")
+  //     next({name,message})
+  //   }
+
+  // })
+
+
+
   ordersRouter.get('/purchases',requireUser, async (req, res, next) => {
     let user_id  = req.user.id;
     console.log('user_id', user_id);
