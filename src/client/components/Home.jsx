@@ -28,6 +28,7 @@ export default function Home() {
     return( <>
         <div className='homePage'>
             <h1>Welcome to Sage Swan</h1>
+            <hr></hr>
         </div>
 
         {products.map((product)=>(
@@ -35,7 +36,7 @@ export default function Home() {
             onClick={()=>navigate(`/${product.id}`)}>
             <h3>{product.name}</h3> 
             <p>{product.description}</p> 
-            <p>{product.price}</p>
+            <p>{product.price}$</p>
             <p><img src={product.image}/></p>
             </div>
         ))}

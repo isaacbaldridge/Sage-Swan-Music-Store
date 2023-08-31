@@ -49,12 +49,14 @@ async function getJoinedOrder(orderId) {
     const {rows} = await db.query(`
     SELECT
     products.id AS product_id,
+    orders.id AS order_id,
     orders.fulfilled,
     orders.user_id,
     order_products.quantity,
     products.name,
     products.price,
-    products.brand
+    products.brand,
+    products.image
     FROM orders
     JOIN order_products ON orders.id = order_products.order_id
     JOIN products ON order_products.product_id = products.id

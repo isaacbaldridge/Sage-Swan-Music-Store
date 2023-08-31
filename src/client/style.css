@@ -2,8 +2,8 @@
 .App {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: left;
   height: 100vh; 
 }
 
@@ -13,7 +13,15 @@
 }
 
 #comp-img{
-  width: 250px;
+  width: 150px;
 }
+
+body {
+  background-color:tan;
+ 
+}
+
+
+
 
 /* Add more styling for other elements if needed */
