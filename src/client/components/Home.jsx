@@ -27,10 +27,10 @@ export default function Home() {
 
     return( <>
         <div className='homePage'>
-            <h1>Welcome to Sage Swan</h1>
+            <h1>WELCOME TO SAGE SWAN</h1>
             <hr></hr>
         </div>
-
+        <div className = "products">
         {products.map((product)=>(
             <div key = {product.id}
             onClick={()=>navigate(`/${product.id}`)}>
@@ -39,6 +39,7 @@ export default function Home() {
             <p>{product.price}$</p>
             <p><img src={product.image}/></p>
             </div>
-        ))}
+            
+        ))}</div>
         </>)
 }
