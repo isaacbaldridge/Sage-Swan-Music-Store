@@ -62,26 +62,36 @@ const users = [
   // Add more user objects as needed
 
 ];  
+
 const products = [
+  
   {
+    
     category: "string",
   brand: "Fender",
   name: "Stratocaster",
   description: "A fine guitar",
   price: 1999.99,
+  
   image: "https://media.sweetwater.com/api/i/b-original__w-300__h-450__q-85__f-webp__ha-02b1a530862db1db__hmac-953a4466d771f99528b84fe9095d07379cf22e70/images/guitars/StratAULR2S/US23023383/US23023383-body-large.jpg.auto.webp"
+  
   },
 
   {
+   
     category: "string",
     brand: "Fender",
     name: "Telecaster",
     description: "For all your best country tunes",
     price: 2499.99,
     image: "https://media.sweetwater.com/api/i/b-original__w-300__h-450__q-85__f-webp__ha-0bcc206cdcb5e438__hmac-ba6502cbb3217f67c37d40b28eae6fa7f01b131d/images/guitars/TeleAV251BB/V2324728/V2324728-body-large.jpg.auto.webp"
+
 },
 
+
+
 {
+
   category: "string",
   brand: "Fender",
   name: "Jazzmaster",
@@ -91,6 +101,7 @@ const products = [
 },
 
 {
+  
   category: "string",
   brand: "Gibson",
   name: "Les Paul",
