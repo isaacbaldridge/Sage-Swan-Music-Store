@@ -51,7 +51,7 @@ ordersRouter.delete('/:id', async (req, res, next) => {
   }
   });
 
-  ordersRouter.get('/cart/:user_id',requireUser, async (req, res, next) => {
+  ordersRouter.get('/cart/:user_id', requireUser, async (req, res, next) => {
     // let user_id  = req.user.id;
     const {user_id} = req.params
     console.log('user_id', user_id);
@@ -152,9 +152,9 @@ ordersRouter.get('/:id', async (req, res, next) => {
   try{ 
 
         const updatedOrder = await updateOrder(id, updateFields);
-        console.log(updatedOrder)
-        console.log(updateFields)
-        console.log(req.body)
+        // console.log(updatedOrder)
+        // console.log(updateFields)
+        // console.log(req.body)
       res.send({ order: updatedOrder })
 
     } catch ({name,message}) {

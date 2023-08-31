@@ -45,7 +45,7 @@ const [loggedIn, setLoggedIn] = useState(null)
        {/* <Route path="/Profile" element={ <Profile token={token}/> }>Profile</Route>
        <Route path="/Cart" element={<Cart/>}>Cart</Route> */}
        <Route path="/Admin" element={<Admin token={token}/>}>Admin</Route>
-       <Route path="/:id" element={<SingleProduct userInfo = {userInfo}/>}>SingleProduct</Route>
+       <Route path="/:id" element={<SingleProduct userInfo = {userInfo} token={token}/>}>SingleProduct</Route>
        </Routes>
     </>
   );

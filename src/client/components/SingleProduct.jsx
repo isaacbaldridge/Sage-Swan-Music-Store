@@ -1,8 +1,9 @@
 import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
 import {Link} from 'react-router-dom';
+// import { getOrderByUserId } from "../../server/db";
 
-export default function SingleProduct({userInfo}) {
+export default function SingleProduct({userInfo, token}) {
     const [singleProduct, setSingleProduct] = useState ({});
     const {id} = useParams();
     console.log(userInfo)
@@ -21,6 +22,19 @@ export default function SingleProduct({userInfo}) {
     async function addProductToCart(product_id) {
 
         try {
+
+            const cartResponse = await fetch (`/api/orders/cart/${userInfo.id}`,{
+                method: "GET",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`}
+                })
+            const cartItems = await cartResponse.json()
+            // console.log(cartItems)
+            // console.log(cartItems.orders[0].order_id)
+            const order_id = cartItems.orders[0].order_id
+            // console.log(order_id)
+
         let response = await fetch ('http://localhost:3000/api/order_products',{
             method: 'POST',
             headers: {
@@ -42,6 +56,8 @@ export default function SingleProduct({userInfo}) {
         }
     }
 
+    console.log(userInfo.id)
+
 
 
 
@@ -57,8 +73,8 @@ export default function SingleProduct({userInfo}) {
             <p><img src={singleProduct.image}/></p>
             </div>
             <Link to ='/'><button>Go Back</button></Link>
-            <Link to ='/Cart'><button
-            onClick = {() => addProductToCart(singleProduct.id, )}>Add To Cart</button></Link>
+            <Link to ='/'><button
+            onClick = {() => addProductToCart(singleProduct.id)}>Add To Cart</button></Link>
            
             </div>
 
