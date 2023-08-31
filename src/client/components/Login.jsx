@@ -36,7 +36,7 @@ const Login = ({setToken, userInfo, setUserInfo}) => {
         setUserInfo(result.user)
         if(result.token && result.user){
         localStorage.setItem("token", JSON.stringify(result.token))
-
+        localStorage.setItem("user", JSON.stringify(result.user))
         localStorage.setItem("loggedIn", true)
         if(result.token){
           navigate('/Profile') 

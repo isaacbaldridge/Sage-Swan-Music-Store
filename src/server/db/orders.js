@@ -30,7 +30,7 @@ async function getOrderById(orderId) {
         FROM orders
         WHERE id = $1;
       `, [orderId]);
-      console.log(order)
+      // console.log(order)
   
       if (!order) {
         throw {
@@ -75,7 +75,7 @@ async function getOrderByUserId(userId) {
     FROM orders
     WHERE user_id =$1;
     `, [userId]);
-    console.log(orders);
+    // console.log(orders);
   
   if (!orders) {
     throw {
@@ -84,7 +84,7 @@ async function getOrderByUserId(userId) {
     };
   }
   const result = await Promise.all(Object.values(orders).map(order => getJoinedOrder(order.id)));
-  console.log('result from gerOrderByuserId',result);
+  // console.log('result from gerOrderByuserId',result);
 return result;
 
 }catch(error){

@@ -6,9 +6,9 @@ const {
 } = require('../db');
 
 productsRouter.get('/', async(req, res, next) =>{
-    console.log("YOU LOSE")
+    // console.log("YOU LOSE")
     try{
-        console.log("in product route");
+        // console.log("in product route");
         const products = await getAllProducts();
 
         res.send(products);

@@ -57,7 +57,7 @@ ordersRouter.delete('/:id', async (req, res, next) => {
     console.log('user_id', user_id);
     try{
       const allOrdersByUser = await getOrderByUserId(user_id);
-      console.log ('getOrderByUserId :',allOrdersByUser);
+      // console.log ('getOrderByUserId :',allOrdersByUser);
       const orders = (Object.values(allOrdersByUser[allOrdersByUser.length - 1]).filter(
         order =>{
           if(order.fulfilled === false){
@@ -68,7 +68,7 @@ ordersRouter.delete('/:id', async (req, res, next) => {
           }
         }
       ))
-      console.log("testing")
+      // console.log("testing")
       res.send ({orders})
     }
     catch ({name, message}){
@@ -111,10 +111,10 @@ ordersRouter.delete('/:id', async (req, res, next) => {
 
   ordersRouter.get('/purchases',requireUser, async (req, res, next) => {
     let user_id  = req.user.id;
-    console.log('user_id', user_id);
+    // console.log('user_id', user_id);
     try{
       const allOrdersByUser = await getOrderByUserId(user_id);
-      console.log ('getOrderByUserId :',allOrdersByUser);
+      // console.log ('getOrderByUserId :',allOrdersByUser);
 
       const purchaseHistory = allOrdersByUser.map(order => 
         order.filter(product => product.fulfilled === true))
@@ -148,14 +148,13 @@ ordersRouter.get('/:id', async (req, res, next) => {
   if (fulfilled) {
     updateFields.fulfilled = fulfilled;
   }
-
-    
-  
   
   try{ 
-        const originalOrder = await getOrderById(id);
 
         const updatedOrder = await updateOrder(id, updateFields);
+        console.log(updatedOrder)
+        console.log(updateFields)
+        console.log(req.body)
       res.send({ order: updatedOrder })
 
     } catch ({name,message}) {

@@ -10,9 +10,9 @@ export default function Cart({token, userInfo, setUserInfo}) {
     const navigate = useNavigate();
 
 
-    console.log(userInfo)
+    // console.log(userInfo)
     console.log(userInfo.id)
-    console.log(token)
+    // console.log(token)
 
     useEffect(()=>{
         async function fetchCartData(){
@@ -25,7 +25,7 @@ export default function Cart({token, userInfo, setUserInfo}) {
                     })
                 const cartItems = await response.json()
                 setCartItems(cartItems)
-                console.log(cartItems)
+                // console.log(cartItems)
             }catch(err){
                 console.log('error fetching cartItems', err);
             }
@@ -33,12 +33,13 @@ export default function Cart({token, userInfo, setUserInfo}) {
         fetchCartData();
     }, []);
 
-    console.log(cartItems)
-    console.log(cartItems.orders)
+    // console.log(cartItems)
+    // console.log(cartItems.orders)
 
     // quantity DOES get updated, but also returns an error cannot get /api/orders/cart/undefined. Solved with local storage?
     async function handleQtyUpdate(product_id, order_id) {
         const updateQuantity = async () => {
+            console.log("testing...")
             console.log(product_id)
             console.log(order_id)
     
@@ -48,9 +49,9 @@ export default function Cart({token, userInfo, setUserInfo}) {
                     headers: {
                         "Content-Type": "application/json",
                         "Authorization": `Bearer ${token}`},
-                        body: JSON.stringify ({
-                            quantity
-                        })
+                    body: JSON.stringify ({
+                        quantity
+                    })
                     })
                     const updateOrderProduct = await response.json()
                     console.log("edited quantity: ", updateOrderProduct)
@@ -63,7 +64,7 @@ export default function Cart({token, userInfo, setUserInfo}) {
     }
 
     async function deleteCartItem(product_id, order_id){
-        console.log(token);
+        // console.log(token);
         const response = await fetch(`/api/order_products/byBothIds/${product_id}/${order_id}`,{
         method: "DELETE",
           headers: {
@@ -71,6 +72,7 @@ export default function Cart({token, userInfo, setUserInfo}) {
             'Authorization': `Bearer ${token}`
           }})
         const result = await response.json();
+        // navigate("/cart")
     }
 
     async function clearCart(order_id) {
@@ -84,8 +86,8 @@ export default function Cart({token, userInfo, setUserInfo}) {
     }
 
     async function checkoutCart(order_id) {
-        setFulfilled(true)
-        // console.log(fulfilled)
+        // setFulfilled(true)
+        // console.log("fulfilled status: ", fulfilled)
         async function updateFulfilled() {
 
             try {
@@ -93,13 +95,15 @@ export default function Cart({token, userInfo, setUserInfo}) {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": `Bearer ${token}`,
-                        body: JSON.stringify ({
-                            fulfilled
-                        })
-                    }})
+                        "Authorization": `Bearer ${token}`
+                    },
+                    body: JSON.stringify ({
+                        fulfilled: true
+                    })
+                })
                     const result = await response.json()
-                    console.log("updated fulfilled status: ", result)
+                    // console.log("updated fulfilled status: ", result)
+                    // console.log(cartItems.orders)
             } catch (err) {
                 throw err
             }        
@@ -110,7 +114,7 @@ export default function Cart({token, userInfo, setUserInfo}) {
 
     if(cartItems.orders) {
         const result = cartItems.orders.map((item) => item.price * item.quantity)
-        console.log(result)
+        // console.log(result)
         const initialValue = 0
         const sumWithInitial = result.reduce((accumulator, currentValue) => 
         accumulator + currentValue, initialValue)
@@ -125,8 +129,18 @@ export default function Cart({token, userInfo, setUserInfo}) {
                     
                     <h2>Total: {sumWithInitial}</h2>
                     
-                    <button onClick={() => checkoutCart(cartItems.orders[0].order_id)}>Checkout</button>
-                    <button onClick={() => clearCart(cartItems.orders[0].order_id)}>Clear cart</button>
+                    <button onClick={() => 
+                        {
+                            // setFulfilled(true)
+                            checkoutCart(cartItems.orders[0].order_id)
+                            navigate("/")
+                        }
+                        }>Checkout</button>
+                    <button onClick={() => 
+                        {clearCart(cartItems.orders[0].order_id)
+                        navigate("/")}
+
+                        }>Clear cart</button>
         
         
                     {cartItems.orders.map((item) => <div key = {item.product_id}>
@@ -135,7 +149,12 @@ export default function Cart({token, userInfo, setUserInfo}) {
                         <h3>{item.name}</h3>
                         <h4>Price: ${item.price}</h4>
                         <h4>Quantity: {item.quantity}</h4>
-                        <form onSubmit = {() => handleQtyUpdate(item.product_id, item.order_id)}>
+                        <form onSubmit = {() => 
+                            {handleQtyUpdate(item.product_id, item.order_id)
+                            navigate("/")
+
+                        }
+                            }>
                             <label htmlFor="quantity">Change Quantity</label>
                             <input
                             type="number"
@@ -146,7 +165,9 @@ export default function Cart({token, userInfo, setUserInfo}) {
                             onChange = {(e) => setQuantity(e.target.value)}></input>
                             <button>Update Qty</button>
                         </form>
-                        <button onClick={() => deleteCartItem(item.product_id, item.order_id)}>Remove</button>
+                        <button onClick={() => {
+                            deleteCartItem(item.product_id, item.order_id)
+                            navigate("/")} }>Remove</button>
                         </div>)}
         
                 </section>
