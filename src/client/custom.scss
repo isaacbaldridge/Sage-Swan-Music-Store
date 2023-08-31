@@ -1,0 +1,30 @@
+/* make the customizations */
+$primary: #8a63d2;
+$secondary: #b18bd0;
+
+$link-color: $primary;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+
+/* import bootstrap to set changes */
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+@import url('https://fonts.googleapis.com/css2?family=Eczar&family=Righteous&family=Rubik&display=swap');
+
+body { 
+    font-family: 'Eczar', serif;
+    font-family: 'Righteous', cursive;
+    font-family: 'Rubik', sans-serif;
+    background-color:tan;
+
+}
+     
+h1, h2, h3 {
+    color: $primary;
+}
+
+img {
+    
+}
