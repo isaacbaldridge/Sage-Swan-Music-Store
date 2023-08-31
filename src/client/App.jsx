@@ -11,6 +11,9 @@ import SingleProduct from './components/SingleProduct';
 
 function App() {
 const [token, setToken] =  useState('');
+
+const [userInfo, setUserInfo] = useState({})
+
 const [loggedIn, setLoggedIn] = useState(null)
 
   useEffect(() => {
@@ -29,8 +32,12 @@ const [loggedIn, setLoggedIn] = useState(null)
     <Nav token={token} setToken={setToken}/>
     <Routes>
     <Route path="/" element={<Home />}>Home</Route>
-       <Route path="/Login" element={<Login setToken={setToken} />}>Login</Route>
+       <Route path="/Login" element={<Login setToken={setToken} userInfo={userInfo} setUserInfo={setUserInfo}/>}>Login</Route>
        <Route path="/Register" element={<Register setToken={setToken} />}>Register</Route>
+
+       <Route path="/Profile" element={<Profile user={userInfo} />}>Profile</Route>
+       <Route path="/Cart" element={<Cart userInfo={userInfo} setUserInfo={setUserInfo} token={token}/>}>Cart</Route>
+
        <Route path="/Profile" element={ <Profile token={token}/> }>Profile</Route>
        <Route path="/Cart" element={<Cart/>}>Cart</Route>
        <Route path="/Admin" element={<Admin token={token}/>}>Admin</Route>

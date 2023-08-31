@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-const Login = ({setToken}) => {
+const Login = ({setToken, userInfo, setUserInfo}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -32,6 +32,9 @@ const Login = ({setToken}) => {
         console.log(result)
         setMessage(result.message);
         setToken(result.token)
+
+        setUserInfo(result.user)
+        if(result.token && result.user){
         localStorage.setItem("token", JSON.stringify(result.token))
 
         localStorage.setItem("loggedIn", true)
