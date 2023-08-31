@@ -32,8 +32,13 @@ const Login = ({setToken, userInfo, setUserInfo}) => {
         console.log(result)
         setMessage(result.message);
         setToken(result.token)
+
         setUserInfo(result.user)
         if(result.token && result.user){
+        localStorage.setItem("token", JSON.stringify(result.token))
+
+        localStorage.setItem("loggedIn", true)
+        if(result.token){
           navigate('/Profile') 
         }
         if(!response.ok) {

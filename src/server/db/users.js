@@ -55,7 +55,7 @@ const getUserByEmail = async(email) => {
 async function getAllUsers() {
     try {
       const { rows } = await db.query(`
-        SELECT id, name, username, address, isAdmin
+        SELECT id, name, username, email, address, isAdmin
         FROM users;
       `);
     console.log(rows);
@@ -69,7 +69,7 @@ async function getAllUsers() {
   async function getUserById(userId) {
     try {
       const { rows: [ user ] } = await db.query(`
-        SELECT id, name, username, address, isAdmin
+        SELECT id, name, username, email, address, isAdmin
         FROM users
         WHERE id=${userId}
       `);

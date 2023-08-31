@@ -15,7 +15,7 @@ async function handleSubmit(e) {
     e.preventDefault();
 
 
-console.log(password)
+//console.log(password)
     try {
     let response = await fetch ('http://localhost:3000/api/users/register',{
         method: 'POST',
@@ -29,13 +29,18 @@ console.log(password)
     let result = await response.json()
     console.log('register result', result)
     setToken(result.token)
+    if(result.token){
+        navigate('/Login') 
+      }
+      if(!response.ok) {
+        throw(result)
+      }
     setSuccessMessage(result.message)
     setName("");
     setUsername("");
     setEmail("");
     setPassword("");
     setAddress("");
-    // navigate('../Login')
 
     
     }
