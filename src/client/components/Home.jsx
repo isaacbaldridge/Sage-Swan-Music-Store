@@ -27,10 +27,10 @@ export default function Home() {
 
     return( <>
     <hr></hr>
+    
         <div className='homePage'>
-         <h1>WELCOME TO SAGE SWAN</h1>
-         <img src = "https://i.ibb.co/3kGz3dn/Screen-Shot-2023-09-01-at-11-19-29-AM.png"></img>
-            
+         <img className ="logo" src = "https://i.ibb.co/jypnmy0/Screen-Shot-2023-09-01-at-11-19-29-AM-fotor-bg-remover-2023090111579.png"></img> 
+          <h1>WELCOME TO SAGE SWAN</h1>   
         </div>
         <div className = "products">
         {products.map((product)=>(

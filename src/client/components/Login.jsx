@@ -58,7 +58,7 @@ const Login = ({setToken, userInfo, setUserInfo}) => {
   };
 
   return (
-    <div>
+    <div className = "loginPage">
       <h2>Login</h2>
 
      
