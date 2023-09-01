@@ -56,11 +56,15 @@ const Login = ({setToken, userInfo, setUserInfo}) => {
     e.preventDefault();
     login();  
   };
-  
+
   return (
     <div>
       <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+
+     
+
+      <form className='form'onSubmit={handleSubmit}>
+     
         <div>
           <label htmlFor='email'>Email:</label>
           <input
@@ -87,7 +91,6 @@ const Login = ({setToken, userInfo, setUserInfo}) => {
       <p>{message}</p>
     </div>
   );
+};
 
-
-}
 export default Login;

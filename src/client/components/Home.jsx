@@ -26,17 +26,19 @@ export default function Home() {
 
 
     return( <>
+    <hr></hr>
         <div className='homePage'>
-            <h1>WELCOME TO SAGE SWAN</h1>
-            <hr></hr>
+         <h1>WELCOME TO SAGE SWAN</h1>
+         <img src = "https://i.ibb.co/3kGz3dn/Screen-Shot-2023-09-01-at-11-19-29-AM.png"></img>
+            
         </div>
         <div className = "products">
         {products.map((product)=>(
             <div key = {product.id}
             onClick={()=>navigate(`/${product.id}`)}>
             <h3>{product.name}</h3> 
-            <p>{product.description}</p> 
-            <p>{product.price}$</p>
+            {/* <p>{product.description}</p>  */}
+            <p>${product.price}</p>
             <p><img src={product.image}/></p>
             </div>
             
