@@ -86,7 +86,8 @@ const Login = ({setToken, userInfo, setUserInfo}) => {
           />
         </div>
         <button type='submit'>Login</button> <br/>
-        <Link to="/Register">Don't have an account? Register HERE</Link>
+        <div className='registerLink'>
+        <Link to="/Register">Don't have an account? Register HERE</Link> </div>
       </form>
       <p>{message}</p>
     </div>
