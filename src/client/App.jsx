@@ -6,6 +6,7 @@ import Profile from './components/Profile';
 import Nav from './components/Nav';
 import Cart from './components/Cart';
 import Admin from './components/Admin';
+import ConfirmPage from './components/ConfirmPage'
 import {Routes, Route} from 'react-router-dom';
 import SingleProduct from './components/SingleProduct';
 
@@ -32,9 +33,10 @@ const [loggedIn, setLoggedIn] = useState(null)
   }, [])
 
   return (
-    <> 
+    <>
     <Nav token={token} setToken={setToken}/>
     <Routes>
+    <Route path="/Confirm" element={<ConfirmPage />}>Confirmed</Route>
     <Route path="/" element={<Home />}>Home</Route>
        <Route path="/Login" element={<Login setToken={setToken} userInfo={userInfo} setUserInfo={setUserInfo}/>}>Login</Route>
        <Route path="/Register" element={<Register setToken={setToken} />}>Register</Route>
