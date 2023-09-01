@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 export default function Nav({token, setToken}) {
     const navigate = useNavigate()
 
-    console.log(token)
+    // console.log(token)
     return(
         <div className = "navbar">
             <Link to = '/'><span class="material-symbols-outlined">
