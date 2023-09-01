@@ -1,8 +1,8 @@
 /* make the customizations */
-$primary: #c0dbe0;
+$primary: slategray;
 $secondary: #b18bd0;
 
-$link-color: $primary;
+$link-color: $primary; 
 $success: #28a745;
 $info: #17a2b8;
 $warning: #ffc107;
@@ -14,16 +14,19 @@ $danger: #dc3545;
 @import url('https://fonts.googleapis.com/css2?family=Eczar&family=Righteous&family=Rubik&display=swap');
 
 body { 
-    font-family: 'Eczar', serif;
+    font-family:'Times New Roman', Times, serif;
     font-family: 'Righteous', cursive;
-    font-family: 'Rubik', sans-serif;
-    background-color:tan;
+    font-family:Arial, Helvetica, sans-serif;
+    
 
 }
- h1 {
-    color:#17a2b8
+ h1,h2 {
+     color:#36533d;
+
  }    
- 
+h3 {
+    color: whitesmoke
+} 
 
 
 img {
@@ -31,29 +34,34 @@ img {
     display: flex-wrap;
     flex-direction: column;
     border-radius: 15px;
-    height: 250px;
-    Width: 200px
+    height: 260px;
+     width: 200px
 }
 
 .products {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+//    justify-content: space-between;
     font-weight:bold;
-    color:beige
+    color:beige;
+    padding: 50px;
+    margin-top: 20px;
+    gap: 30px;
+    cursor: pointer;
 }
 
 .navbar {
     background-color: silver;
     padding: 1px;
     display: flex;
-    margin: 0;
-   color: teal
+    
+ 
 
 
 }
 
 .homePage {
+    font-family:cursive;
     background-color:silver;
     padding: 15px;
     text-align: center;
@@ -73,7 +81,40 @@ a:hover {
 }
 
 hr {
-    color:cadetblue;
+    color:rgb(62, 100, 72);
     border-color: black;
-    margin: 5px
+    margin: 2px
+   
+}
+
+.form {
+    
+    /*margin: 15px;*/
+    padding: 15px;
+    border: 15px;
+  /*  margin-left: 50%*/
+}
+
+.register {
+    margin-top: 5%;
+    margin-left: 50%
+}
+
+.SingleProduct { 
+    // display: flex;
+   display:inline-block;
+    margin-left: 50%;
+    margin-top: 5%;
+    border: 10px solid silver;
+    padding: 50px;
+    border-radius: 50px 10px;
+    box-shadow: 10px 5px 5px rgb(39, 38, 38);
+    // flex-direction: column;
+    // justify-content: center;
+    
+}
+
+.SingleProduct > h1 {
+font-style:italic; 
+text-decoration:underline
 }

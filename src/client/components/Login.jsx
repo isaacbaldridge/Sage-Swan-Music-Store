@@ -60,7 +60,7 @@ const Login = ({setToken, userInfo, setUserInfo}) => {
   return (
     <div>
       <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+      <form className = "form" onSubmit={handleSubmit}>
         <div>
           <label htmlFor='email'>Email:</label>
           <input
