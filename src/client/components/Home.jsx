@@ -13,7 +13,7 @@ export default function Home() {
                 const response = await fetch ("http://localhost:3000/api/products")
                 const products = await response.json()
 
-                console.log(products)
+                // console.log(products)
                 setProducts(products)
             }catch(err){
                 console.log('error fetching products', err);
@@ -27,10 +27,10 @@ export default function Home() {
 
     return( <>
         <div className='homePage'>
-            <h1>Welcome to Sage Swan</h1>
+            <h1>WELCOME TO SAGE SWAN</h1>
             <hr></hr>
         </div>
-
+        <div className = "products">
         {products.map((product)=>(
             <div key = {product.id}
             onClick={()=>navigate(`/${product.id}`)}>
@@ -39,6 +39,7 @@ export default function Home() {
             <p>{product.price}$</p>
             <p><img src={product.image}/></p>
             </div>
-        ))}
+            
+        ))}</div>
         </>)
 }

@@ -74,6 +74,7 @@ const products = [
   price: 1999.99,
   
   image: "https://media.sweetwater.com/api/i/b-original__w-300__h-450__q-85__f-webp__ha-02b1a530862db1db__hmac-953a4466d771f99528b84fe9095d07379cf22e70/images/guitars/StratAULR2S/US23023383/US23023383-body-large.jpg.auto.webp"
+ 
   
   },
 
@@ -93,11 +94,11 @@ const products = [
 {
 
   category: "string",
-  brand: "Fender",
-  name: "Jazzmaster",
-  description: "For all your best jazzy tunes",
-  price: 499.99,
-  image:  "https://media.sweetwater.com/api/i/q-70__h-300__w-300__f-png__b-original/images/items/1800/JazzGFCAB-xlarge.jpg"
+  brand: "Gibson",
+  name: "Firebird V",
+  description: "Burn it down with the Firebird",
+  price: 5000.00,
+  image:  "https://media.sweetwater.com/api/i/b-original__w-300__h-450__q-85__f-webp__ha-eca807c79727e9ef__hmac-a834c2c9c005753c3f56869dcfd470a833af998d/images/guitars/FB5ULPBM/301033/301033-body-large.jpg.auto.webp"
 },
 
 {

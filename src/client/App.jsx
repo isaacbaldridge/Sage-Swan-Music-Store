@@ -25,6 +25,10 @@ const [loggedIn, setLoggedIn] = useState(null)
       if(loggedIn){
         setLoggedIn("loggedIn", true)
       }
+      const user = localStorage.getItem("user")
+      if(user){
+        setUserInfo(JSON.parse(localStorage.getItem("user")))
+      }
   }, [])
 
   return (
@@ -38,10 +42,10 @@ const [loggedIn, setLoggedIn] = useState(null)
        <Route path="/Profile" element={<Profile user={userInfo} />}>Profile</Route>
        <Route path="/Cart" element={<Cart userInfo={userInfo} setUserInfo={setUserInfo} token={token}/>}>Cart</Route>
 
-       <Route path="/Profile" element={ <Profile token={token}/> }>Profile</Route>
-       <Route path="/Cart" element={<Cart/>}>Cart</Route>
+       {/* <Route path="/Profile" element={ <Profile token={token}/> }>Profile</Route>
+       <Route path="/Cart" element={<Cart/>}>Cart</Route> */}
        <Route path="/Admin" element={<Admin token={token}/>}>Admin</Route>
-       <Route path="/:id" element={<SingleProduct/>}>SingleProduct</Route>
+       <Route path="/:id" element={<SingleProduct userInfo = {userInfo} token={token}/>}>SingleProduct</Route>
        </Routes>
     </>
   );
