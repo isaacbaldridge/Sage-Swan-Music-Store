@@ -26,9 +26,10 @@ export default function Home() {
 
 
     return( <>
+    <hr></hr>
         <div className='homePage'>
             <h1>WELCOME TO SAGE SWAN</h1>
-            <hr></hr>
+            
         </div>
         <div className = "products">
         {products.map((product)=>(
