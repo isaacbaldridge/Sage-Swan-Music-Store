@@ -9,7 +9,7 @@ export default function Nav({token, setToken}) {
     // console.log(token)
     return(
         <div className = "navbar">
-            <Link to = '/'><span class="material-symbols-outlined">
+            <Link to = '/'><span className="material-symbols-outlined">
               home
               </span>Home</Link>
 
@@ -18,11 +18,11 @@ export default function Nav({token, setToken}) {
             <Link to = '/Login'>Login</Link>
 
             {token ? <Link to = '/Profile'> 
-            <span class="material-symbols-outlined">
+            <span className="material-symbols-outlined">
             person</span> Profile</Link> : null}
             
             <Link to = '/Cart'>
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                   shopping_cart</span>Cart</Link>
             {token ? <button onClick={() => {
                 setToken(null)
