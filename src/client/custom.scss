@@ -94,6 +94,7 @@ hr {
     //margin: 0% auto;
     padding: 15px;
     border: 15px;
+    gap :5px;
 //    margin-left: 50%
 }
 
@@ -163,9 +164,14 @@ text-decoration:underline
     border-radius: 50px 10px;
 }
  
-// .Admin{
-//     display:inline-block;
-//     margin-left: 50%;
-//     margin-top: 5%;
-// }
+.Admin{
+    display:inline-block;
+    margin-left: 50%;
+    margin-top: 5%;
+    border: 5px solid silver;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    padding: 50px;
+
+}
 

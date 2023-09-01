@@ -46,7 +46,7 @@ export default function Profile({user}) {
         
 
           {console.log(user.isadmin)}
-        {<div className="Admin"> 
+        {<div className="admin"> 
             {user.isadmin === true ?
             <button onClick={() => navigate('/Admin')}> Admin Access </button> : null }
     
