@@ -89,10 +89,10 @@ hr {
 
 .form {
     
-    /*margin: 15px;*/
+    //margin: 0% auto;
     padding: 15px;
     border: 15px;
-  /*  margin-left: 50%*/
+//    margin-left: 50%
 }
 
 .register {
@@ -118,3 +118,27 @@ hr {
 font-style:italic; 
 text-decoration:underline
 }
+
+.registerLink{
+    
+        a:link { color:silver; }
+        a:visited { color: silver; }
+        a:hover { color: #36533d; }
+        a:active { color: #36533d; }
+        
+}
+
+.Profile{
+    display:inline-block;
+    margin-left: 50%;
+    margin-top: 5%;
+    border: 10px solid silver;
+    padding: 50px;
+    border-radius: 50px 10px;
+}
+ 
+// .Admin{
+//     display:inline-block;
+//     margin-left: 50%;
+//     margin-top: 5%;
+// }
