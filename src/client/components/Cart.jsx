@@ -177,5 +177,13 @@ export default function Cart({token, userInfo, setUserInfo}) {
             )
         
         }
+        else {
+            return (
+                <>
+                    <div className = "Cart">Cart Page</div>
+                    <h3>Your Cart is Empty! </h3>
+                       <h4> Go Back and Add Products to your cart</h4>
+</>)
+        }
 
     }
