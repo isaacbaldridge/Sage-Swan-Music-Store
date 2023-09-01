@@ -61,6 +61,8 @@ img {
 }
 
 .homePage {
+    display: flex;
+    align-items: center;
     font-family:cursive;
     background-color:silver;
     padding: 15px;
@@ -99,7 +101,10 @@ hr {
     margin-top: 5%;
     margin-left: 50%
 }
-
+.loginPage {
+    margin-top: 5%;
+    margin-left: 50%
+}
 .SingleProduct { 
     // display: flex;
    display:inline-block;
@@ -118,3 +123,14 @@ hr {
 font-style:italic; 
 text-decoration:underline
 }
+
+.logo {
+    width: 12%;
+    height: 12%;
+    margin-left: 0%;
+    border-radius: 90%;
+    text-align:left;
+    box-shadow: 0px 10px 10px  rgb(55, 70, 54);
+    margin-right: 18%
+}
+
