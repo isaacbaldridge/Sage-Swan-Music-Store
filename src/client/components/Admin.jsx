@@ -134,7 +134,7 @@ export default function Admin({token}) {
         
             <div className = "Admin">
             <details>
-               <summary>Users</summary>
+               <summary><h3>Users</h3></summary>
                 {users.map((user)=>(
                     <div key = {user.id}>
                        <h3>Name : {user.name}</h3> 
@@ -145,7 +145,7 @@ export default function Admin({token}) {
                 ))}
                 </details>
             <details>
-               <summary>Products</summary>
+               <summary><h3>Products</h3></summary>
                 {products.map((product)=>(
             <div key = {product.id}>
             <h3>{product.name}</h3> 
@@ -153,7 +153,7 @@ export default function Admin({token}) {
             <p>{product.price}$</p>
             <p><img src={product.image}/></p> 
             <details>
-                <summary>Edit Product</summary>
+                <summary><h3>Edit Product</h3></summary>
                 <form className='form' onSubmit={()=>handleChange(product.id)}>
 
                 <label>Category</label>
@@ -179,7 +179,7 @@ export default function Admin({token}) {
         ))}
         </details>
         <details>
-            <summary>Add New Products</summary>
+            <summary><h3>Add New Products</h3></summary>
             <form className='form' onSubmit={handleSubmit}>
 
                 <label>Category</label>
