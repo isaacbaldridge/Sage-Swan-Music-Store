@@ -56,7 +56,7 @@ const Login = ({setToken, userInfo, setUserInfo}) => {
     e.preventDefault();
     login();  
   };
-  
+
   return (
     <div>
       <h2>Login</h2>
@@ -87,7 +87,6 @@ const Login = ({setToken, userInfo, setUserInfo}) => {
       <p>{message}</p>
     </div>
   );
+};
 
-
-}
 export default Login;
