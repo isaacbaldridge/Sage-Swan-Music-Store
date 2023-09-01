@@ -102,6 +102,7 @@ export default function Cart({token, userInfo, setUserInfo}) {
                     })
                 })
                     const result = await response.json()
+                    navigate("/Confirm")
                     // console.log("updated fulfilled status: ", result)
                     // console.log(cartItems.orders)
             } catch (err) {
