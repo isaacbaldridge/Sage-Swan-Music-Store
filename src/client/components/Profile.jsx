@@ -42,7 +42,7 @@ export default function Profile({user}) {
         <h3><u>Email</u>: {user.email}</h3>
         <h3><u>Address</u>: {user.address}</h3>
         
-        <h3>Include purchase history here!!!</h3></div>
+        </div>
 
           {console.log(user.isadmin)}
         {<div className="Admin"> 

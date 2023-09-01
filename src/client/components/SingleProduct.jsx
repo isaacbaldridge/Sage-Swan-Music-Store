@@ -95,12 +95,12 @@ export default function SingleProduct({userInfo, token}) {
     return(
         <>
         <div className='SingleProduct'>
-            <h1>Product Details!</h1>
+            <h1>Product Details</h1>
         
             <div key = {singleProduct.id}>
             <h3>{singleProduct.name}</h3> 
             <p>{singleProduct.description}</p> 
-            <p>{singleProduct.price}</p>
+            <p>${singleProduct.price}</p>
             <p><img src={singleProduct.image}/></p>
             </div>
             <Link to ='/'><button>Go Back</button></Link>

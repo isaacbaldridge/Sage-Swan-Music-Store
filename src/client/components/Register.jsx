@@ -57,17 +57,17 @@ async function handleSubmit(e) {
             {error && <p>{error}</p>}
             <form className='form' onSubmit={handleSubmit}>
 
-                <label>Name</label>
+                <label>Name</label><br/>
                 <input value = {name} type='text'onChange={(e) => setName(e.target.value)}/> <br/>
-                <label>Username</label>
+                <label>Username</label><br/>
                 <input value = {username} type='text' required onChange={(e) => setUsername(e.target.value)}/> <br/>
-                <label>Password</label>
+                <label>Password</label><br/>
                 <input value = {password} type='password' required onChange={(e) => setPassword(e.target.value)}/> <br/>
-                <label>Email</label>
+                <label>Email</label><br/>
                 <input value = {email} type='email' required onChange={(e) => setEmail(e.target.value)}/> <br/>
-                <label>Address</label>
+                <label>Address</label><br/>
                 <input value = {address} type='text'onChange={(e) => setAddress(e.target.value)}/> <br/>
-                <button>Register</button>
+                <button>Register</button><br/>
             </form>
             {successMessage && <p>{successMessage}</p>}
         </div>
