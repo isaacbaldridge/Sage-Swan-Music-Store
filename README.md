@@ -54,15 +54,10 @@ npm run dev
 --- Dependencies ---
 
     "bcrypt": "^5.1.1",
-
     "body-parser": "^1.20.2",
-
     "bootstrap": "^5.3.1",
-
     "dotenv": "^16.3.1",
-
     "express": "^4.18.2",
-    
     "jsonwebtoken": "^9.0.1",
     "pg": "^8.11.3",
     "react": "^18.2.0",
@@ -73,22 +68,33 @@ npm run dev
     "volleyball": "^1.5.1"
 
 --- Contributors ---
+
 Name: Beccah Lenhart
+
 GitHub: https://github.com/beccahlen
+
 LinkedIn: https://www.linkedin.com/in/beccah-lenhart/
 
 Name: Isaac Baldridge
+
 GitHub: https://github.com/isaacbaldridge
+
 LinkedIn: https://www.linkedin.com/in/isaac-baldridge/
 
 Name: Bryce Lowry
+
 GitHub: https://github.com/blowry1463
+
 LinkedIn: https://www.linkedin.com/in/bryce-lowry/
 
 Name: Divineshia Sharon
+
 GitHub: https://github.com/Divineshia 
+
 LinkedIn: https://www.linkedin.com/in/divineshia-sharon
 
 Name: Jasmine Elliot
+
 GitHub: https://github.com/jellio26
+
 LinkedIn: https://www.linkedin.com/in/jasmine-elliott-8a7052280/
