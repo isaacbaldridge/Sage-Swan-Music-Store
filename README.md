@@ -70,31 +70,21 @@ npm run dev
 --- Contributors ---
 
 Name: Beccah Lenhart
-
 GitHub: https://github.com/beccahlen
-
 LinkedIn: https://www.linkedin.com/in/beccah-lenhart/
 
 Name: Isaac Baldridge
-
 GitHub: https://github.com/isaacbaldridge
-
 LinkedIn: https://www.linkedin.com/in/isaac-baldridge/
 
 Name: Bryce Lowry
-
 GitHub: https://github.com/blowry1463
-
 LinkedIn: https://www.linkedin.com/in/bryce-lowry/
 
 Name: Divineshia Sharon
-
 GitHub: https://github.com/Divineshia 
-
 LinkedIn: https://www.linkedin.com/in/divineshia-sharon
 
-Name: Jasmine Elliot
-
+Name: Jasmine Elliott
 GitHub: https://github.com/jellio26
-
 LinkedIn: https://www.linkedin.com/in/jasmine-elliott-8a7052280/
