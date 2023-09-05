@@ -122,7 +122,7 @@ export default function Cart({token, userInfo, setUserInfo}) {
 
         return (
             <>
-                <div className = "Cart">Cart Page</div>
+                <div className = "Cart"></div>
         
     
                 
@@ -145,7 +145,7 @@ export default function Cart({token, userInfo, setUserInfo}) {
         
         
                     {cartItems.orders.map((item) => <div key = {item.product_id}>
-                        <h2>Order ID: {item.order_id}</h2>
+                        {/* <h2>Order ID: {item.order_id}</h2> */}
                         <h3>{item.brand}, {item.name}</h3>
                         <img src = {item.image}/>
                         <h3>{item.name}</h3>
@@ -180,7 +180,7 @@ export default function Cart({token, userInfo, setUserInfo}) {
         else {
             return (
                 <>
-                    <div className = "Cart">Cart Page</div>
+                    <div className = "Cart"></div>
                     <h3>Your Cart is Empty! </h3>
                        <h4> Go Back and Add Products to your cart</h4>
 </>)
