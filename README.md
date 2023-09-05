@@ -69,8 +69,8 @@ npm run dev
 
 --- Contributors ---
 
-Name: Beccah Lenhart
-GitHub: https://github.com/beccahlen
+Name: Beccah Lenhart<br/>
+GitHub: https://github.com/beccahlen</br>
 LinkedIn: https://www.linkedin.com/in/beccah-lenhart/
 
 Name: Isaac Baldridge
