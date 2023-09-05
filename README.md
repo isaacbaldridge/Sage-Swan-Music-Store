@@ -34,7 +34,7 @@ createdb your-database-name
 
 6. Update `src/server/db/client.js` to reflect the name of your database
 ```js
-const connectionString = process.env.DATABASE_URL || 'https://localhost:5432/your-database-name';
+const connectionString = process.env.DATABASE_URL || 'http://localhost:5432/your-database-name';
 ```
 
 7. Seed the database
