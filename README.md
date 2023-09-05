@@ -2,10 +2,12 @@
 
 
 --- Description ---
+
 We have created an e-commerce website named Sage Swan that sells a variety of musical instruments. This site has register/login features, a user profile page with conditional rendering based on the user's admin status, a functional cart page with quantity adjustment, delete item/clear cart functions, and a checkout button that renders a confirmation page. A homepage features data rendered from database created for this project, with the option for single item views and 'add to cart' functionality. The user's profile page has admin capability when admin boolean is 'true', which allows user to see a list of users and a list of items in database, with options to add/delete/modify items in database.
 
 
 --- Instructions ---
+
 1. **Don't fork or clone this repo!** Instead, create a new, empty directory on your machine and `git init` (or create an _empty_ repo on GitHub and clone it to your local machine)
 
 2. Add this template as a remote and merge it into your own repository
@@ -50,11 +52,17 @@ npm run dev
 10. Build something cool! 😎
 
 --- Dependencies ---
+
     "bcrypt": "^5.1.1",
+
     "body-parser": "^1.20.2",
+
     "bootstrap": "^5.3.1",
+
     "dotenv": "^16.3.1",
+
     "express": "^4.18.2",
+    
     "jsonwebtoken": "^9.0.1",
     "pg": "^8.11.3",
     "react": "^18.2.0",
