@@ -1,12 +1,12 @@
---- E-commerce Capstone Project ---
+<b>--- E-commerce Capstone Project ---</b>
 
 
---- Description ---
+<b>--- Description ---</b>
 
 We have created an e-commerce website named Sage Swan that sells a variety of musical instruments. This site has register/login features, a user profile page with conditional rendering based on the user's admin status, a functional cart page with quantity adjustment, delete item/clear cart functions, and a checkout button that renders a confirmation page. A homepage features data rendered from database created for this project, with the option for single item views and 'add to cart' functionality. The user's profile page has admin capability when admin boolean is 'true', which allows user to see a list of users and a list of items in database, with options to add/delete/modify items in database.
 
 
---- Instructions ---
+<b>--- Instructions ---</b>
 
 1. **Don't fork or clone this repo!** Instead, create a new, empty directory on your machine and `git init` (or create an _empty_ repo on GitHub and clone it to your local machine)
 
@@ -51,7 +51,7 @@ npm run dev
 
 10. Build something cool! 😎
 
---- Dependencies ---
+<b>--- Dependencies ---</b>
 
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
@@ -67,24 +67,24 @@ npm run dev
     "vite-express": "^0.9.2",
     "volleyball": "^1.5.1"
 
---- Contributors ---
+<b>--- Contributors ---</b>
 
 Name: Beccah Lenhart<br/>
 GitHub: https://github.com/beccahlen</br>
 LinkedIn: https://www.linkedin.com/in/beccah-lenhart/
 
-Name: Isaac Baldridge
-GitHub: https://github.com/isaacbaldridge
+Name: Isaac Baldridge<br/>
+GitHub: https://github.com/isaacbaldridge<br/>
 LinkedIn: https://www.linkedin.com/in/isaac-baldridge/
 
-Name: Bryce Lowry
-GitHub: https://github.com/blowry1463
+Name: Bryce Lowry<br/>
+GitHub: https://github.com/blowry1463<br/>
 LinkedIn: https://www.linkedin.com/in/bryce-lowry/
 
-Name: Divineshia Sharon
-GitHub: https://github.com/Divineshia 
+Name: Divineshia Sharon<br/>
+GitHub: https://github.com/Divineshia<br/>
 LinkedIn: https://www.linkedin.com/in/divineshia-sharon
 
-Name: Jasmine Elliott
-GitHub: https://github.com/jellio26
+Name: Jasmine Elliott<br/>
+GitHub: https://github.com/jellio26<br/>
 LinkedIn: https://www.linkedin.com/in/jasmine-elliott-8a7052280/
