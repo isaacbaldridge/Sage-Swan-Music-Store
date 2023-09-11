@@ -63,7 +63,7 @@ img {
 .homePage {
     display: flex;
     align-items: center;
-    font-family:cursive;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     background-color:silver;
     padding: 15px;
     text-align: center;
@@ -123,6 +123,10 @@ hr {
 .SingleProduct > h1 {
 font-style:italic; 
 text-decoration:underline
+}
+
+.SingleProduct > div > p {
+    color: white;
 }
 
 
