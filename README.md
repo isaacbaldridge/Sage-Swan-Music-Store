@@ -49,7 +49,7 @@ npm run dev
 
 9. Open your browser at `http://localhost:3000`
 
-10. Build something cool! 😎
+10. Register an account with the music store and "shop" around!
 
 <b>--- Dependencies ---</b>
 
